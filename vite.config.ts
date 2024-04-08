@@ -23,7 +23,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       rewriteRoutes: [
         {
           paths: {
-            'admin/index.html': 'admin'
+            'admin/index': 'admin'
           },
         }
       ]
