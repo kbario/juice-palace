@@ -37,7 +37,7 @@ export default component$(() => {
 
   return (
     <>
-      <div class="container container-center">
+      <div class="container-center container">
         <h1>
           <span class="highlight">TODO</span> List
         </h1>
@@ -45,7 +45,7 @@ export default component$(() => {
 
       <div role="presentation" class="ellipsis"></div>
 
-      <div class="container container-center">
+      <div class="container-center container">
         {list.value.length === 0 ? (
           <span class={styles.empty}>No items found</span>
         ) : (
@@ -57,7 +57,7 @@ export default component$(() => {
         )}
       </div>
 
-      <div class="container container-center">
+      <div class="container-center container">
         <Form action={action} spaReset>
           <input type="text" name="text" required class={styles.input} />{" "}
           <button type="submit" class="button-dark">

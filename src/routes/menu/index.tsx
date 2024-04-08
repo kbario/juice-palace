@@ -1,71 +1,112 @@
 import { component$ } from "@builder.io/qwik";
+import client from "../../../tina/__generated__/client";
+import type {
+  Groups,
+  GroupsItems,
+  GroupsSubgroups,
+  GroupsSubgroupsItems,
+} from "../../../tina/__generated__/types";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { fetchEntries } from "@builder.io/sdk-qwik";
 
-// TO DO: Add your Public API Key
-// export const apiKey = import.meta.env.BUILDER_API_KEY;
+type Group = Pick<
+  Groups,
+  "title" | "__typename" | "desc" | "price" | "items" | "subgroups"
+>;
+type Subgroup = Pick<
+  GroupsSubgroups,
+  "title" | "__typename" | "desc" | "price" | "items"
+>;
 
-export const useLoader = routeLoader$(async () => {
-  const apiKey = "d228e886f0514865b326a2359c82b9bb"; //requestEvent.env.get("PUBLIC_BUILDER_API_KEY");
-  // if (!apiKey) return null;
-  return fetchEntries({
-    model: "menu",
-    //   apiKey: apiKey,
-    apiKey,
-  });
+export const useMenuData = routeLoader$(async () => {
+  const asdf = await client.queries.groupsConnection();
+  return asdf.data.groupsConnection.edges?.map((x) => x?.node) || [];
 });
 
 export default component$(() => {
-  //   const linksResource = useResource$((a) =>
-  //     fetchEntries({
-  //       model: "Menu",
-  //     //   apiKey: apiKey,
-  //     apiKey: a.
-  //     }),
-  //   );
-  const asdf = useLoader();
-  // console.log(
-  //   JSON.parse(
-  //     JSON.stringify(asdf.value?.[0]?.data?.menuCategory[1].menuItems),
-  //   ),
-  // );
-
+  const groups = useMenuData();
   return (
-    <div class="flex flex-col items-start">
-      {asdf.value?.[0].data?.menuCategory.map((x: any, i: number) => (
-        <section key={i}>
-          <h1>{x?.menuCategoryTitle}</h1>
-          {x.menuCategoryDesc && <p>{x.menuCategoryDesc}</p>}
-          <ul>
-            {x.menuItems &&
-              x.menuItems.map((y: any, i: number) => (
-                <li key={i}>
-                  <h2>{y.menuItemTitle}</h2>
-                  <p>{y.menuItemDesc}</p>
+    <>
+      {groups.value.map((group, idx) => (
+        <section key={idx} class="flex max-w-screen-sm flex-col">
+          {group && <MenuHeading {...group} />}
+          {group?.items?.length && (
+            <ul>
+              {group.items.map((item, idx) => (
+                <li key={idx}>
+                  <Item {...item} />
                 </li>
               ))}
-          </ul>
+            </ul>
+          )}
+          {group?.subgroups?.length && (
+            <ul>
+              {group.subgroups.map((subgroup, idx) => (
+                <li key={idx}>
+                  {subgroup && <MenuHeading {...subgroup} />}
+                  {subgroup?.items?.length && (
+                    <ul>
+                      {subgroup.items.map((item, idx) => (
+                        <li key={idx}>
+                          <Item {...item} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       ))}
+    </>
+  );
+});
+
+const MenuHeading = component$<Partial<Group | Subgroup>>((group) => {
+  return (
+    <div class="flex justify-between">
+      <div class="flex flex-col">
+        {group.__typename === "Groups" ? (
+          <h2 class="text-2xl">{group.title}</h2>
+        ) : (
+          <h3 class="text-xl">{group.title}</h3>
+        )}
+        {group.desc && <span class="text-zinc-600">{group.desc}</span>}
+      </div>
+      {group.price && (
+        <span
+          class={[
+            {
+              "text-2xl": group.__typename === "Groups",
+              "text-xl": group.__typename === "GroupsSubgroups",
+            },
+          ]}
+        >
+          ${group.price}
+        </span>
+      )}
     </div>
   );
-  //   return (
-  //     <Resource
-  //       value={asdf}
-  //       onPending={() => <>Loading...</>}
-  //       onRejected={(error) => <>Error: {error.message}</>}
-  //       onResolved={(links) => (
-  //         <header>
-  //           <h1>My Integrated Data</h1>
-  //           <nav>
-  //             {links?.map((link, index) => (
-  //               <a key={index} href={link.data.url}>
-  //                 {link.data.label}
-  //               </a>
-  //             ))}
-  //           </nav>
-  //         </header>
-  //       )}
-  //     />
-  //   );
+});
+
+const Item = component$<Partial<GroupsItems | GroupsSubgroupsItems>>((item) => {
+  return (
+    <div class="flex justify-between">
+      <div class="flex flex-col">
+        <h4 class="text-xl">{item.title}</h4>
+        {item.desc && <span>{item.desc}</span>}
+      </div>
+      {item.price && <span>${item.price}</span>}
+      {item.sizing?.length && (
+        <ul>
+          {item.sizing.map((size, idx) => (
+            <li key={idx} class="flex">
+              <span>{size?.size}</span>
+              <span>${size?.price}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 });

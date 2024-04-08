@@ -25,7 +25,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="container container-center">
+    <div class="container-center container">
       <div role="presentation" class="ellipsis"></div>
       <h1>
         <span class="highlight">Generate</span> Flowers
