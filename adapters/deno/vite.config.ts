@@ -7,7 +7,7 @@ export default extendConfig(baseConfig, () => {
     build: {
       ssr: true,
       rollupOptions: {
-        input: ["src/entry.deno.ts", "@qwik-city-plan"],
+        input: ["src/entry.deno.ts", "@qwik-city-plan", "public/admin/index.html"],
       },
       minify: false,
     },
@@ -15,7 +15,7 @@ export default extendConfig(baseConfig, () => {
       denoServerAdapter({
         ssg: {
           include: ["/*"],
-          origin: "https://yoursite.dev",
+          origin: "https://juice-palace.deno.dev",
         },
       }),
     ],
