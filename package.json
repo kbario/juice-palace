@@ -30,7 +30,8 @@
     "preview": "qwik build preview && vite preview --open",
     "serve": "deno run --allow-net --allow-read --allow-env server/entry.deno.js",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "postbuild": "mv public/admin/index.html dist/admin/index.html"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.5.1",

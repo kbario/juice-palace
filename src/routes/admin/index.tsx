@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+// import { component$ } from "@builder.io/qwik";
 import type { RequestEvent } from "@builder.io/qwik-city";
 
 export const onGet = async ({ redirect }: RequestEvent) => {
@@ -7,4 +7,4 @@ export const onGet = async ({ redirect }: RequestEvent) => {
 
 // Define a component that renders Builder content
 // using Qwik's Content component.
-export default component$(() => <div> hello </div>);
+// export default component$(() => <div> hello </div>);
