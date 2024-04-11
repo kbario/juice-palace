@@ -1,6 +1,5 @@
 ---
 dayOfWeek: Thursday
-openingTime: '7'
-closingTime: '12'
+openingTime: "7"
+closingTime: "12"
 ---
-
