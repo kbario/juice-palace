@@ -6,6 +6,15 @@ import type {
   GroupsSubgroups,
 } from "./__generated__/types";
 
+export const Dietary = {
+  Vegan: "Vegan",
+  Vegetarian: "Vegetarian",
+  GlutenFree: "Gluten Free",
+  ContainsNuts: "Contains Nuts",
+} as const;
+
+export const DietaryOptions = Object.values(Dietary);
+
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -72,6 +81,13 @@ const menuItems = [
         required: true,
       },
     ],
+  },
+  {
+    list: true,
+    label: "Dietary",
+    name: "dietary",
+    type: "string",
+    options: DietaryOptions,
   },
 ] satisfies TinaField<false>[];
 
@@ -171,6 +187,11 @@ export default defineConfig({
         label: "Menu Groups",
         name: "groups",
         path: "content/menu",
+        ui: {
+          router: () => {
+            return "/menu";
+          },
+        },
         fields: [...groupObject, subgroupObject],
       },
       {

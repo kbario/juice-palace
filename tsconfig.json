@@ -18,9 +18,18 @@
     "noEmit": true,
     "types": ["node", "vite/client"],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "shared/*": ["./shared/*"],
+      "tina/*": ["./tina/*"]
     }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src", "./tina/**/*.ts", "./*.d.ts", "./*.config.ts"]
+  "include": [
+    "src",
+    "./tina/**/*.ts",
+    "./*.d.ts",
+    "./*.config.ts",
+    "src/constants",
+    "src/helpers"
+  ]
 }
