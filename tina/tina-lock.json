@@ -1,1 +1,2845 @@
-{"schema":{"version":{"fullVersion":"1.4.33","major":"1","minor":"4","patch":"33"},"meta":{"flags":["experimentalData"]},"collections":[{"label":"Menu Groups","name":"groups","path":"content/menu","ui":{},"fields":[{"type":"string","label":"Group Title","name":"title","required":true,"namespace":["groups","title"],"searchable":true,"uid":false},{"type":"string","label":"Group Description","name":"desc","namespace":["groups","desc"],"searchable":true,"uid":false},{"type":"string","label":"Group Price","name":"price","ui":{},"namespace":["groups","price"],"searchable":true,"uid":false},{"list":true,"label":"Menu Items","name":"items","type":"object","fields":[{"type":"string","label":"Menu Item Title","name":"title","required":true,"namespace":["groups","items","title"],"searchable":true,"uid":false},{"type":"string","label":"Menu Item Description","name":"desc","namespace":["groups","items","desc"],"searchable":true,"uid":false},{"type":"string","label":"Menu Item Price","name":"price","required":false,"ui":{},"namespace":["groups","items","price"],"searchable":true,"uid":false},{"list":true,"label":"Menu Item Sizing","name":"sizing","type":"object","ui":{},"fields":[{"type":"string","label":"Menu Item Size","name":"size","options":["Small","Large"],"required":true,"namespace":["groups","items","sizing","size"],"searchable":true,"uid":false},{"type":"number","label":"Menu Item Price","name":"price","required":true,"namespace":["groups","items","sizing","price"],"searchable":true,"uid":false}],"namespace":["groups","items","sizing"],"searchable":true,"uid":false},{"list":true,"label":"Dietary","name":"dietary","type":"string","options":["Vegan","Vegetarian","Gluten Free","Contains Nuts"],"namespace":["groups","items","dietary"],"searchable":true,"uid":false}],"ui":{},"namespace":["groups","items"],"searchable":true,"uid":false},{"list":true,"label":"Menu Subgroups","name":"subgroups","type":"object","fields":[{"type":"string","label":"Subgroup Title","name":"title","required":true,"namespace":["groups","subgroups","title"],"searchable":true,"uid":false},{"type":"string","label":"Subgroup Description","name":"desc","namespace":["groups","subgroups","desc"],"searchable":true,"uid":false},{"type":"string","label":"Subgroup Price","name":"price","ui":{},"namespace":["groups","subgroups","price"],"searchable":true,"uid":false},{"list":true,"label":"Menu Items","name":"items","type":"object","fields":[{"type":"string","label":"Menu Item Title","name":"title","required":true,"namespace":["groups","subgroups","items","title"],"searchable":true,"uid":false},{"type":"string","label":"Menu Item Description","name":"desc","namespace":["groups","subgroups","items","desc"],"searchable":true,"uid":false},{"type":"string","label":"Menu Item Price","name":"price","required":false,"ui":{},"namespace":["groups","subgroups","items","price"],"searchable":true,"uid":false},{"list":true,"label":"Menu Item Sizing","name":"sizing","type":"object","ui":{},"fields":[{"type":"string","label":"Menu Item Size","name":"size","options":["Small","Large"],"required":true,"namespace":["groups","subgroups","items","sizing","size"],"searchable":true,"uid":false},{"type":"number","label":"Menu Item Price","name":"price","required":true,"namespace":["groups","subgroups","items","sizing","price"],"searchable":true,"uid":false}],"namespace":["groups","subgroups","items","sizing"],"searchable":true,"uid":false},{"list":true,"label":"Dietary","name":"dietary","type":"string","options":["Vegan","Vegetarian","Gluten Free","Contains Nuts"],"namespace":["groups","subgroups","items","dietary"],"searchable":true,"uid":false}],"ui":{},"namespace":["groups","subgroups","items"],"searchable":true,"uid":false}],"ui":{},"namespace":["groups","subgroups"],"searchable":true,"uid":false}],"namespace":["groups"]},{"label":"Opening Hours","name":"openingHours","path":"content/openingHours","fields":[{"type":"string","label":"Day of the Week","name":"dayOfWeek","required":true,"options":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"namespace":["openingHours","dayOfWeek"],"searchable":true,"uid":false},{"type":"string","label":"Opening Time","name":"openingTime","required":true,"ui":{},"namespace":["openingHours","openingTime"],"searchable":true,"uid":false},{"type":"string","label":"Closing Time","name":"closingTime","required":true,"ui":{},"namespace":["openingHours","closingTime"],"searchable":true,"uid":false}],"namespace":["openingHours"]}],"config":{"media":{"tina":{"publicFolder":"public","mediaRoot":""}}}},"lookup":{"DocumentConnection":{"type":"DocumentConnection","resolveType":"multiCollectionDocumentList","collections":["groups","openingHours"]},"Node":{"type":"Node","resolveType":"nodeDocument"},"DocumentNode":{"type":"DocumentNode","resolveType":"multiCollectionDocument","createDocument":"create","updateDocument":"update"},"Groups":{"type":"Groups","resolveType":"collectionDocument","collection":"groups","createGroups":"create","updateGroups":"update"},"GroupsConnection":{"type":"GroupsConnection","resolveType":"collectionDocumentList","collection":"groups"},"OpeningHours":{"type":"OpeningHours","resolveType":"collectionDocument","collection":"openingHours","createOpeningHours":"create","updateOpeningHours":"update"},"OpeningHoursConnection":{"type":"OpeningHoursConnection","resolveType":"collectionDocumentList","collection":"openingHours"}},"graphql":{"kind":"Document","definitions":[{"kind":"ScalarTypeDefinition","name":{"kind":"Name","value":"Reference"},"description":{"kind":"StringValue","value":"References another document, used as a foreign key"},"directives":[]},{"kind":"ScalarTypeDefinition","name":{"kind":"Name","value":"JSON"},"description":{"kind":"StringValue","value":""},"directives":[]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"SystemInfo"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"filename"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"title"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"basename"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"breadcrumbs"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"excludeExtension"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}}],"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"path"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"relativePath"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"extension"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"template"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"collection"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Collection"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"Folder"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"name"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"path"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"PageInfo"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"hasPreviousPage"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"hasNextPage"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"startCursor"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"endCursor"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}]},{"kind":"InterfaceTypeDefinition","description":{"kind":"StringValue","value":""},"name":{"kind":"Name","value":"Node"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"id"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}]},{"kind":"InterfaceTypeDefinition","description":{"kind":"StringValue","value":""},"name":{"kind":"Name","value":"Document"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"id"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"_sys"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"SystemInfo"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"_values"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"JSON"}}}}]},{"kind":"InterfaceTypeDefinition","description":{"kind":"StringValue","value":"A relay-compliant pagination connection"},"name":{"kind":"Name","value":"Connection"},"interfaces":[],"directives":[],"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"totalCount"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"pageInfo"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"PageInfo"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"Query"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"getOptimizedQuery"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"queryString"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"collection"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"collection"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Collection"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"collections"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Collection"}}}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"node"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"id"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Node"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"document"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"collection"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentNode"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"groups"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Groups"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"groupsConnection"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"before"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"after"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"first"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"last"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"sort"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"filter"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsFilter"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsConnection"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"openingHours"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHours"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"openingHoursConnection"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"before"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"after"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"first"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"last"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"sort"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"filter"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursFilter"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursConnection"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"DocumentFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"groups"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"openingHours"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursFilter"}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"DocumentConnectionEdges"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"cursor"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"node"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentNode"}}}]},{"kind":"ObjectTypeDefinition","interfaces":[{"kind":"NamedType","name":{"kind":"Name","value":"Connection"}}],"directives":[],"name":{"kind":"Name","value":"DocumentConnection"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"pageInfo"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"PageInfo"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"totalCount"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"edges"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentConnectionEdges"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"Collection"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"name"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"slug"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"label"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"path"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"format"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"matches"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"templates"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"JSON"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"fields"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"JSON"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"documents"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"before"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"after"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"first"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"last"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"sort"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"filter"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"folder"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentConnection"}}}}]},{"kind":"UnionTypeDefinition","name":{"kind":"Name","value":"DocumentNode"},"directives":[],"types":[{"kind":"NamedType","name":{"kind":"Name","value":"Groups"}},{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHours"}},{"kind":"NamedType","name":{"kind":"Name","value":"Folder"}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"GroupsItemsSizing"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"size"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"price"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"GroupsItems"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"title"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"desc"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"price"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"sizing"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsItemsSizing"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"dietary"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"GroupsSubgroupsItemsSizing"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"size"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"price"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"GroupsSubgroupsItems"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"title"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"desc"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"price"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"sizing"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsItemsSizing"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"dietary"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"GroupsSubgroups"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"title"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"desc"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"price"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"items"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsItems"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[{"kind":"NamedType","name":{"kind":"Name","value":"Node"}},{"kind":"NamedType","name":{"kind":"Name","value":"Document"}}],"directives":[],"name":{"kind":"Name","value":"Groups"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"title"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"desc"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"price"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"items"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsItems"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"subgroups"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroups"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"id"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"_sys"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SystemInfo"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"_values"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"JSON"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"StringFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"startsWith"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"eq"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"exists"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"in"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"NumberFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"lt"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"lte"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"gte"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"gt"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"eq"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"exists"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"in"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsItemsSizingFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"size"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"NumberFilter"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsItemsFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"sizing"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsItemsSizingFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"dietary"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsSubgroupsItemsSizingFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"size"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"NumberFilter"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsSubgroupsItemsFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"sizing"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsItemsSizingFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"dietary"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsSubgroupsFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"items"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsItemsFilter"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"items"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsItemsFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"subgroups"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsFilter"}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"GroupsConnectionEdges"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"cursor"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"node"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"Groups"}}}]},{"kind":"ObjectTypeDefinition","interfaces":[{"kind":"NamedType","name":{"kind":"Name","value":"Connection"}}],"directives":[],"name":{"kind":"Name","value":"GroupsConnection"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"pageInfo"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"PageInfo"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"totalCount"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"edges"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsConnectionEdges"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[{"kind":"NamedType","name":{"kind":"Name","value":"Node"}},{"kind":"NamedType","name":{"kind":"Name","value":"Document"}}],"directives":[],"name":{"kind":"Name","value":"OpeningHours"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"dayOfWeek"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"openingTime"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"closingTime"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"id"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"_sys"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SystemInfo"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"_values"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"JSON"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"OpeningHoursFilter"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"dayOfWeek"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"openingTime"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"closingTime"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"StringFilter"}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"OpeningHoursConnectionEdges"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"cursor"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"node"},"arguments":[],"type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHours"}}}]},{"kind":"ObjectTypeDefinition","interfaces":[{"kind":"NamedType","name":{"kind":"Name","value":"Connection"}}],"directives":[],"name":{"kind":"Name","value":"OpeningHoursConnection"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"pageInfo"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"PageInfo"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"totalCount"},"arguments":[],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"edges"},"arguments":[],"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursConnectionEdges"}}}}]},{"kind":"ObjectTypeDefinition","interfaces":[],"directives":[],"name":{"kind":"Name","value":"Mutation"},"fields":[{"kind":"FieldDefinition","name":{"kind":"Name","value":"addPendingDocument"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"collection"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"template"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentNode"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"updateDocument"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"collection"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"params"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentUpdateMutation"}}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentNode"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"deleteDocument"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"collection"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentNode"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"createDocument"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"collection"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"params"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentMutation"}}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DocumentNode"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"updateGroups"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"params"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsMutation"}}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Groups"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"createGroups"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"params"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsMutation"}}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Groups"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"updateOpeningHours"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"params"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursMutation"}}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHours"}}}},{"kind":"FieldDefinition","name":{"kind":"Name","value":"createOpeningHours"},"arguments":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"params"},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursMutation"}}}}],"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHours"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"DocumentUpdateMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"groups"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsMutation"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"openingHours"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursMutation"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"relativePath"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"DocumentMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"groups"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsMutation"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"openingHours"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"OpeningHoursMutation"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsItemsSizingMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"size"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsItemsMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"sizing"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsItemsSizingMutation"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"dietary"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsSubgroupsItemsSizingMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"size"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Float"}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsSubgroupsItemsMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"sizing"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsItemsSizingMutation"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"dietary"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsSubgroupsMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"items"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsItemsMutation"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"GroupsMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"title"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"desc"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"price"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"items"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsItemsMutation"}}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"subgroups"},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"GroupsSubgroupsMutation"}}}}]},{"kind":"InputObjectTypeDefinition","name":{"kind":"Name","value":"OpeningHoursMutation"},"fields":[{"kind":"InputValueDefinition","name":{"kind":"Name","value":"dayOfWeek"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"openingTime"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"InputValueDefinition","name":{"kind":"Name","value":"closingTime"},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}]}]}}
+{
+  "schema": {
+    "version": {
+      "fullVersion": "1.4.33",
+      "major": "1",
+      "minor": "4",
+      "patch": "33"
+    },
+    "meta": { "flags": ["experimentalData"] },
+    "collections": [
+      {
+        "label": "Menu Groups",
+        "name": "groups",
+        "path": "content/menu",
+        "ui": {},
+        "fields": [
+          {
+            "type": "string",
+            "label": "Group Title",
+            "name": "title",
+            "required": true,
+            "namespace": ["groups", "title"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "string",
+            "label": "Group Description",
+            "name": "desc",
+            "namespace": ["groups", "desc"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "string",
+            "label": "Group Price",
+            "name": "price",
+            "ui": {},
+            "namespace": ["groups", "price"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "list": true,
+            "label": "Menu Items",
+            "name": "items",
+            "type": "object",
+            "fields": [
+              {
+                "type": "string",
+                "label": "Menu Item Title",
+                "name": "title",
+                "required": true,
+                "namespace": ["groups", "items", "title"],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "type": "string",
+                "label": "Menu Item Description",
+                "name": "desc",
+                "namespace": ["groups", "items", "desc"],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "type": "string",
+                "label": "Menu Item Price",
+                "name": "price",
+                "required": false,
+                "ui": {},
+                "namespace": ["groups", "items", "price"],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "list": true,
+                "label": "Menu Item Sizing",
+                "name": "sizing",
+                "type": "object",
+                "ui": {},
+                "fields": [
+                  {
+                    "type": "string",
+                    "label": "Menu Item Size",
+                    "name": "size",
+                    "options": ["Small", "Large"],
+                    "required": true,
+                    "namespace": ["groups", "items", "sizing", "size"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "type": "number",
+                    "label": "Menu Item Price",
+                    "name": "price",
+                    "required": true,
+                    "namespace": ["groups", "items", "sizing", "price"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "namespace": ["groups", "items", "sizing"],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "list": true,
+                "label": "Dietary",
+                "name": "dietary",
+                "type": "string",
+                "options": [
+                  "Vegan",
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Contains Nuts"
+                ],
+                "namespace": ["groups", "items", "dietary"],
+                "searchable": true,
+                "uid": false
+              }
+            ],
+            "ui": {},
+            "namespace": ["groups", "items"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "list": true,
+            "label": "Menu Subgroups",
+            "name": "subgroups",
+            "type": "object",
+            "fields": [
+              {
+                "type": "string",
+                "label": "Subgroup Title",
+                "name": "title",
+                "required": true,
+                "namespace": ["groups", "subgroups", "title"],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "type": "string",
+                "label": "Subgroup Description",
+                "name": "desc",
+                "namespace": ["groups", "subgroups", "desc"],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "type": "string",
+                "label": "Subgroup Price",
+                "name": "price",
+                "ui": {},
+                "namespace": ["groups", "subgroups", "price"],
+                "searchable": true,
+                "uid": false
+              },
+              {
+                "list": true,
+                "label": "Menu Items",
+                "name": "items",
+                "type": "object",
+                "fields": [
+                  {
+                    "type": "string",
+                    "label": "Menu Item Title",
+                    "name": "title",
+                    "required": true,
+                    "namespace": ["groups", "subgroups", "items", "title"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "type": "string",
+                    "label": "Menu Item Description",
+                    "name": "desc",
+                    "namespace": ["groups", "subgroups", "items", "desc"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "type": "string",
+                    "label": "Menu Item Price",
+                    "name": "price",
+                    "required": false,
+                    "ui": {},
+                    "namespace": ["groups", "subgroups", "items", "price"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "list": true,
+                    "label": "Menu Item Sizing",
+                    "name": "sizing",
+                    "type": "object",
+                    "ui": {},
+                    "fields": [
+                      {
+                        "type": "string",
+                        "label": "Menu Item Size",
+                        "name": "size",
+                        "options": ["Small", "Large"],
+                        "required": true,
+                        "namespace": [
+                          "groups",
+                          "subgroups",
+                          "items",
+                          "sizing",
+                          "size"
+                        ],
+                        "searchable": true,
+                        "uid": false
+                      },
+                      {
+                        "type": "number",
+                        "label": "Menu Item Price",
+                        "name": "price",
+                        "required": true,
+                        "namespace": [
+                          "groups",
+                          "subgroups",
+                          "items",
+                          "sizing",
+                          "price"
+                        ],
+                        "searchable": true,
+                        "uid": false
+                      }
+                    ],
+                    "namespace": ["groups", "subgroups", "items", "sizing"],
+                    "searchable": true,
+                    "uid": false
+                  },
+                  {
+                    "list": true,
+                    "label": "Dietary",
+                    "name": "dietary",
+                    "type": "string",
+                    "options": [
+                      "Vegan",
+                      "Vegetarian",
+                      "Gluten Free",
+                      "Contains Nuts"
+                    ],
+                    "namespace": ["groups", "subgroups", "items", "dietary"],
+                    "searchable": true,
+                    "uid": false
+                  }
+                ],
+                "ui": {},
+                "namespace": ["groups", "subgroups", "items"],
+                "searchable": true,
+                "uid": false
+              }
+            ],
+            "ui": {},
+            "namespace": ["groups", "subgroups"],
+            "searchable": true,
+            "uid": false
+          }
+        ],
+        "namespace": ["groups"]
+      },
+      {
+        "label": "Opening Hours",
+        "name": "openingHours",
+        "path": "content/openingHours",
+        "fields": [
+          {
+            "type": "string",
+            "label": "Day of the Week",
+            "name": "dayOfWeek",
+            "required": true,
+            "options": [
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "namespace": ["openingHours", "dayOfWeek"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "string",
+            "label": "Opening Time",
+            "name": "openingTime",
+            "required": true,
+            "ui": {},
+            "namespace": ["openingHours", "openingTime"],
+            "searchable": true,
+            "uid": false
+          },
+          {
+            "type": "string",
+            "label": "Closing Time",
+            "name": "closingTime",
+            "required": true,
+            "ui": {},
+            "namespace": ["openingHours", "closingTime"],
+            "searchable": true,
+            "uid": false
+          }
+        ],
+        "namespace": ["openingHours"]
+      }
+    ],
+    "config": {
+      "media": { "tina": { "publicFolder": "public", "mediaRoot": "" } }
+    }
+  },
+  "lookup": {
+    "DocumentConnection": {
+      "type": "DocumentConnection",
+      "resolveType": "multiCollectionDocumentList",
+      "collections": ["groups", "openingHours"]
+    },
+    "Node": { "type": "Node", "resolveType": "nodeDocument" },
+    "DocumentNode": {
+      "type": "DocumentNode",
+      "resolveType": "multiCollectionDocument",
+      "createDocument": "create",
+      "updateDocument": "update"
+    },
+    "Groups": {
+      "type": "Groups",
+      "resolveType": "collectionDocument",
+      "collection": "groups",
+      "createGroups": "create",
+      "updateGroups": "update"
+    },
+    "GroupsConnection": {
+      "type": "GroupsConnection",
+      "resolveType": "collectionDocumentList",
+      "collection": "groups"
+    },
+    "OpeningHours": {
+      "type": "OpeningHours",
+      "resolveType": "collectionDocument",
+      "collection": "openingHours",
+      "createOpeningHours": "create",
+      "updateOpeningHours": "update"
+    },
+    "OpeningHoursConnection": {
+      "type": "OpeningHoursConnection",
+      "resolveType": "collectionDocumentList",
+      "collection": "openingHours"
+    }
+  },
+  "graphql": {
+    "kind": "Document",
+    "definitions": [
+      {
+        "kind": "ScalarTypeDefinition",
+        "name": { "kind": "Name", "value": "Reference" },
+        "description": {
+          "kind": "StringValue",
+          "value": "References another document, used as a foreign key"
+        },
+        "directives": []
+      },
+      {
+        "kind": "ScalarTypeDefinition",
+        "name": { "kind": "Name", "value": "JSON" },
+        "description": { "kind": "StringValue", "value": "" },
+        "directives": []
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "SystemInfo" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "filename" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "basename" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "breadcrumbs" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "excludeExtension" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Boolean" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "ListType",
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "path" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "relativePath" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "extension" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "template" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "collection" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Collection" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Folder" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "name" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "path" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "PageInfo" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "hasPreviousPage" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Boolean" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "hasNextPage" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Boolean" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "startCursor" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "endCursor" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InterfaceTypeDefinition",
+        "description": { "kind": "StringValue", "value": "" },
+        "name": { "kind": "Name", "value": "Node" },
+        "interfaces": [],
+        "directives": [],
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "id" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "ID" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InterfaceTypeDefinition",
+        "description": { "kind": "StringValue", "value": "" },
+        "name": { "kind": "Name", "value": "Document" },
+        "interfaces": [],
+        "directives": [],
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "id" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "ID" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_sys" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "SystemInfo" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_values" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "JSON" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InterfaceTypeDefinition",
+        "description": {
+          "kind": "StringValue",
+          "value": "A relay-compliant pagination connection"
+        },
+        "name": { "kind": "Name", "value": "Connection" },
+        "interfaces": [],
+        "directives": [],
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "totalCount" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "pageInfo" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "PageInfo" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Query" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "getOptimizedQuery" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "queryString" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "collection" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "collection" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Collection" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "collections" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "ListType",
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "Collection" }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "node" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "id" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Node" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "document" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "collection" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentNode" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "groups" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Groups" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "groupsConnection" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "before" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "after" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "first" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "last" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "sort" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "filter" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "GroupsFilter" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsConnection" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "openingHours" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "OpeningHours" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "openingHoursConnection" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "before" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "after" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "first" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "last" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "sort" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "filter" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "OpeningHoursFilter" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "OpeningHoursConnection" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "DocumentFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "groups" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "GroupsFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "openingHours" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "OpeningHoursFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "DocumentConnectionEdges" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "cursor" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "node" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "DocumentNode" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Connection" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "DocumentConnection" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "pageInfo" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "PageInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "totalCount" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "edges" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentConnectionEdges" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Collection" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "name" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "slug" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "label" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "path" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "format" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "matches" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "templates" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "JSON" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "fields" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "JSON" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "documents" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "before" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "after" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "first" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "last" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "Float" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "sort" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "filter" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "DocumentFilter" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "folder" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentConnection" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "UnionTypeDefinition",
+        "name": { "kind": "Name", "value": "DocumentNode" },
+        "directives": [],
+        "types": [
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Groups" }
+          },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "OpeningHours" }
+          },
+          { "kind": "NamedType", "name": { "kind": "Name", "value": "Folder" } }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "GroupsItemsSizing" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "size" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "GroupsItems" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "sizing" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsItemsSizing" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "dietary" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "GroupsSubgroupsItemsSizing" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "size" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "GroupsSubgroupsItems" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "sizing" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "GroupsSubgroupsItemsSizing"
+                }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "dietary" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "GroupsSubgroups" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsSubgroupsItems" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          { "kind": "NamedType", "name": { "kind": "Name", "value": "Node" } },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Document" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Groups" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsItems" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "subgroups" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsSubgroups" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "id" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "ID" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_sys" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "SystemInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_values" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "JSON" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "StringFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "startsWith" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "eq" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "exists" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Boolean" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "in" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "NumberFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "lte" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gte" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "gt" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "eq" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "exists" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Boolean" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "in" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsItemsSizingFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "size" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsItemsFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "sizing" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "GroupsItemsSizingFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "dietary" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsSubgroupsItemsSizingFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "size" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "NumberFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsSubgroupsItemsFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "sizing" },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "GroupsSubgroupsItemsSizingFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "dietary" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsSubgroupsFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "GroupsSubgroupsItemsFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "GroupsItemsFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "subgroups" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "GroupsSubgroupsFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "GroupsConnectionEdges" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "cursor" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "node" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Groups" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Connection" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "GroupsConnection" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "pageInfo" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "PageInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "totalCount" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "edges" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsConnectionEdges" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          { "kind": "NamedType", "name": { "kind": "Name", "value": "Node" } },
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Document" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "OpeningHours" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "dayOfWeek" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "openingTime" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "closingTime" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "id" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "ID" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_sys" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "SystemInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "_values" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "JSON" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "OpeningHoursFilter" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "dayOfWeek" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "openingTime" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "closingTime" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "OpeningHoursConnectionEdges" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "cursor" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "node" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "OpeningHours" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [
+          {
+            "kind": "NamedType",
+            "name": { "kind": "Name", "value": "Connection" }
+          }
+        ],
+        "directives": [],
+        "name": { "kind": "Name", "value": "OpeningHoursConnection" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "pageInfo" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "PageInfo" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "totalCount" },
+            "arguments": [],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Float" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "edges" },
+            "arguments": [],
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "OpeningHoursConnectionEdges"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": { "kind": "Name", "value": "Mutation" },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "addPendingDocument" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "collection" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "template" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentNode" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "updateDocument" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "collection" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": {
+                      "kind": "Name",
+                      "value": "DocumentUpdateMutation"
+                    }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentNode" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "deleteDocument" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "collection" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentNode" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "createDocument" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "collection" },
+                "type": {
+                  "kind": "NamedType",
+                  "name": { "kind": "Name", "value": "String" }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "DocumentMutation" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "DocumentNode" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "updateGroups" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "GroupsMutation" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Groups" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "createGroups" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "GroupsMutation" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "Groups" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "updateOpeningHours" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "OpeningHoursMutation" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "OpeningHours" }
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "createOpeningHours" },
+            "arguments": [
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "relativePath" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "String" }
+                  }
+                }
+              },
+              {
+                "kind": "InputValueDefinition",
+                "name": { "kind": "Name", "value": "params" },
+                "type": {
+                  "kind": "NonNullType",
+                  "type": {
+                    "kind": "NamedType",
+                    "name": { "kind": "Name", "value": "OpeningHoursMutation" }
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "OpeningHours" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "DocumentUpdateMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "groups" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "GroupsMutation" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "openingHours" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "OpeningHoursMutation" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "relativePath" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "DocumentMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "groups" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "GroupsMutation" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "openingHours" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "OpeningHoursMutation" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsItemsSizingMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "size" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsItemsMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "sizing" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsItemsSizingMutation" }
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "dietary" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
+          "value": "GroupsSubgroupsItemsSizingMutation"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "size" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "Float" }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsSubgroupsItemsMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "sizing" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "GroupsSubgroupsItemsSizingMutation"
+                }
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "dietary" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "String" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsSubgroupsMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "GroupsSubgroupsItemsMutation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "GroupsMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "desc" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "price" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "items" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsItemsMutation" }
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "subgroups" },
+            "type": {
+              "kind": "ListType",
+              "type": {
+                "kind": "NamedType",
+                "name": { "kind": "Name", "value": "GroupsSubgroupsMutation" }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": { "kind": "Name", "value": "OpeningHoursMutation" },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "dayOfWeek" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "openingTime" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "closingTime" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
