@@ -1,4 +1,10 @@
-import { useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import {
+  Signal,
+  useComputed$,
+  useSignal,
+  useTask$,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 
 /**
  * Grab the field name for the given attribute
@@ -56,14 +62,14 @@ export function useTina<T extends object>(props: {
   variables: object;
   data: T;
 }): {
-  data: T;
-  isClient: boolean;
+  data: Signal<T>;
+  isClient: Signal<boolean>;
 } {
-  const id = useSignal(() =>
+  const id = useComputed$(() =>
     hashFromQuery(
       JSON.stringify({
         query: props.query,
-        variables: props.variables,
+        variables: props.query,
       }),
     ),
   );
@@ -74,13 +80,12 @@ export function useTina<T extends object>(props: {
   useVisibleTask$(({ track }) => {
     track(id);
     isClient.value = parent.location.toString().includes("admin");
+    quickEditEnabled.value = parent.location.toString().includes("admin");
     data.value = props.data;
   });
-  useVisibleTask$(({ track }) => {
-    track(isClient);
-    track(isInTinaIframe);
+  useTask$(({ track }) => {
     track(quickEditEnabled);
-    if (quickEditEnabled.value && isClient.value) {
+    if (quickEditEnabled.value) {
       const mouseDownHandler = function (e: MouseEvent) {
         if (!e.target) return;
         const attributeNames = (e.target as Element).getAttributeNames();
@@ -160,10 +165,8 @@ export function useTina<T extends object>(props: {
       };
     }
   });
-  useVisibleTask$(({ track }) => {
-    track(id);
+  useTask$(({ track }) => {
     track(isClient);
-    track(quickEditEnabled);
     if (isClient.value) {
       parent.postMessage(
         { type: "open", ...props, id: id.value },
@@ -176,6 +179,7 @@ export function useTina<T extends object>(props: {
         if (event.data.id === id.value && event.data.type === "updateData") {
           data.value = event.data.data;
           isInTinaIframe.value = true;
+          quickEditEnabled.value = true;
           const anyTinaField = document.querySelector("[data-tina-field]");
           if (anyTinaField) {
             parent.postMessage(
@@ -198,5 +202,5 @@ export function useTina<T extends object>(props: {
       };
     }
   });
-  return { data: data.value, isClient: isClient.value };
+  return { data, isClient };
 }
