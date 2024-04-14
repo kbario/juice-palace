@@ -1,7 +1,17 @@
-<svg
+export const JuicePalaceLogo = ({
+  width = 117,
+  height = 58,
+}: {
+  width?: number;
+  height?: number;
+}) => (
+  <svg
+    width={width}
+    height={height}
     viewBox="0 0 117 58"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <rect width="117" height="58" fill="url(#pattern0_46_142)" />
     <defs>
@@ -24,3 +34,4 @@
       />
     </defs>
   </svg>
+);

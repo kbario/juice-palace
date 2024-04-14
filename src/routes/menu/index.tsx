@@ -26,39 +26,44 @@ export const useMenuData = routeLoader$(async () => {
 
 export default component$(() => {
   const groups = useMenuData();
-  const data = useTina({ ...groups.value });
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  let data = useTina(groups.value).data.value?.groupsConnection?.edges?.map(
+    (x) => x?.node,
+  );
+  if (!data) {
+    //@ts-expect-error
+    data = groups.value;
+  }
   return (
     <>
-      {data.data.value.groupsConnection.edges
-        ?.map((x) => x?.node)
-        .map((group, idx) => (
-          <section key={idx} class="flex max-w-screen-sm flex-col">
-            {group && <MenuHeading data={group} />}
-            {!!group?.items?.length && (
-              <ul>
-                {group.items.map((item, idx) => (
-                  <li key={idx}>{item && <Item data={item} />}</li>
-                ))}
-              </ul>
-            )}
-            {!!group?.subgroups?.length && (
-              <ul>
-                {group.subgroups.map((subgroup, idx) => (
-                  <li key={idx}>
-                    {subgroup && <MenuHeading data={subgroup} />}
-                    {!!subgroup?.items?.length && (
-                      <ul>
-                        {subgroup.items.map((item, idx) => (
-                          <li key={idx}>{item && <Item data={item} />}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </section>
-        ))}
+      {data?.map((group, idx) => (
+        <section key={idx} class="flex max-w-screen-sm flex-col">
+          {group && <MenuHeading data={group} />}
+          {!!group?.items?.length && (
+            <ul>
+              {group.items.map((item, idx) => (
+                <li key={idx}>{item && <Item data={item} />}</li>
+              ))}
+            </ul>
+          )}
+          {!!group?.subgroups?.length && (
+            <ul>
+              {group.subgroups.map((subgroup, idx) => (
+                <li key={idx}>
+                  {subgroup && <MenuHeading data={subgroup} />}
+                  {!!subgroup?.items?.length && (
+                    <ul>
+                      {subgroup.items.map((item, idx) => (
+                        <li key={idx}>{item && <Item data={item} />}</li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
     </>
   );
 });

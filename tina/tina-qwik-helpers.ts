@@ -1,5 +1,5 @@
+import type { Signal } from "@builder.io/qwik";
 import {
-  Signal,
   useComputed$,
   useSignal,
   useTask$,
@@ -77,11 +77,9 @@ export function useTina<T extends object>(props: {
   const isClient = useSignal(false);
   const quickEditEnabled = useSignal(false);
   const isInTinaIframe = useSignal(false);
-  useVisibleTask$(({ track }) => {
-    track(id);
+  useVisibleTask$(() => {
     isClient.value = parent.location.toString().includes("admin");
     quickEditEnabled.value = parent.location.toString().includes("admin");
-    data.value = props.data;
   });
   useTask$(({ track }) => {
     track(quickEditEnabled);

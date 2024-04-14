@@ -1,43 +1,23 @@
 import { component$ } from "@builder.io/qwik";
-import { QwikLogo } from "../icons/qwik";
-import styles from "./header.module.css";
+import { JuicePalaceLogo } from "../icons/juice-palace-logo";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
+  const links = [{ display: "menu", href: "/menu" }];
   return (
-    <header class={styles.header}>
-      <div class={["container", styles.wrapper]}>
-        <div class={styles.logo}>
-          <a href="/" title="qwik">
-            <QwikLogo height={50} width={143} />
-          </a>
-        </div>
+    <header class="flex items-center justify-between bg-slate-200 px-4 py-2">
+      <Link href="/">
+        <JuicePalaceLogo />
+      </Link>
+      <nav>
         <ul>
-          <li>
-            <a
-              href="https://qwik.builder.io/docs/components/overview/"
-              target="_blank"
-            >
-              Docs
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://qwik.builder.io/examples/introduction/hello-world/"
-              target="_blank"
-            >
-              Examples
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://qwik.builder.io/tutorial/welcome/overview/"
-              target="_blank"
-            >
-              Tutorials
-            </a>
-          </li>
+          {links.map((link, i) => (
+            <li key={i}>
+              <Link href={link.href}>{link.display}</Link>
+            </li>
+          ))}
         </ul>
-      </div>
+      </nav>
     </header>
   );
 });
