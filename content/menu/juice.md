@@ -1,17 +1,18 @@
 ---
 title: Juices
-price: "9.50"
+price: '9.50'
 items:
   - title: OJ
     desc: Orange
   - title: Apple
-    desc: Apple
+    desc: Bravo Apple
   - title: Tropical
-    desc: "Watermelon, lime & fresh mint"
+    desc: 'Watermelon, lime & fresh mint'
   - title: Green
-    desc: "Apple, celery, cucumber, cos lettuce, kale, parsley & lemon"
+    desc: 'Apple, celery, cucumber, cos lettuce, kale, parsley & lemon'
   - title: Beetroot Baby
-    desc: "Apple, carrot, beetroot, lemon, cinnamon & myrtle"
+    desc: 'Apple, carrot, beetroot, lemon, cinnamon & myrtle'
   - title: Makuru
-    desc: "Orange, apple, watermelon, lemon myrtle & lime"
+    desc: 'Orange, apple, watermelon, lemon myrtle & lime'
 ---
+
