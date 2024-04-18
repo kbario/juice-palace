@@ -5,7 +5,7 @@ items:
   - title: OJ
     desc: Orange
   - title: Apple
-    desc: Bravo Apple
+    desc: Apple
   - title: Tropical
     desc: 'Watermelon, lime & fresh mint'
   - title: Green
