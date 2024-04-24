@@ -31,7 +31,8 @@
     "serve": "deno run --allow-net --allow-read --allow-env server/entry.deno.js",
     "start": "vite --open --mode ssr",
     "qwik": "qwik",
-    "postbuild": "mv public/admin/index.html dist/admin/index.html"
+    "postbuild": "mv public/admin/index.html dist/admin/index.html",
+    "type-check": "tsc"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.5.1",
