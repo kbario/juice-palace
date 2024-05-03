@@ -3,7 +3,7 @@ title: Hot Drinks
 desc: >-
   We charge 30c for takeaway cups. Please feel free to use our ceramic ones to
   din-in or BYO.
-price: ""
+price: ''
 subgroups:
   - title: Coffee
     items:
@@ -19,14 +19,14 @@ subgroups:
             price: 4.4
           - size: Large
             price: 4.9
-      - title: Flat White | Cappuccino | Latte
+      - title: Flat White | Cappuccino
         sizing:
           - size: Small
             price: 5.4
           - size: Large
             price: 4.9
       - title: Short Mac / Piccolo
-        price: "4.8"
+        price: '4.8'
       - title: Long Mac
         sizing:
           - size: Small
@@ -46,7 +46,7 @@ subgroups:
           - size: Large
             price: 5.8
       - title: Babycino
-        price: "2"
+        price: '2'
       - title: Iced Coffees
         sizing:
           - size: Small
@@ -72,7 +72,7 @@ subgroups:
           - size: Large
             price: 6
   - title: Tea
-    price: "4.5"
+    price: '4.5'
     items:
       - title: Black
       - title: Earl Grey
@@ -80,3 +80,4 @@ subgroups:
       - title: Lemon & Ginger
       - title: Peppermint
 ---
+
