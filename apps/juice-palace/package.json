@@ -14,7 +14,7 @@
   "scripts": {
     "tinacms": "tinacms",
     "tina.dev": "tinacms dev -c \"vite --mode ssr\"",
-    "tina.build": "pnpm tinacms build && pnpm build && pnpm postbuild",
+    "tina.build": "pnpm tinacms build",
     "build": "pnpm tina.build && pnpm build.qwik && pnpm postbuild",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",

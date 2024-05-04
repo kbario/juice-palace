@@ -36,3 +36,5 @@ package-lock.json
 yarn.lock
 server
 public/admin
+tina/*
+content/*
