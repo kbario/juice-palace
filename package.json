@@ -1,0 +1,28 @@
+{
+  "name": "juice-palace",
+  "version": "0.0.1",
+  "description": "",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "cs.add": "pnpm changeset",
+    "lint": "turbo lint",
+    "test": "turbo test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbario/juice-palace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbario/juice-palace/issues"
+  },
+  "homepage": "https://github.com/kbario/juice-palace#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1"
+  }
+}
