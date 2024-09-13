@@ -6,11 +6,13 @@ on:
       - site/**
     paths:
       - apps/site/**
+      - .github/workflows/site.yml
   pull_request:
     branches:
       - main
     paths:
       - apps/site/**
+      - .github/workflows/site.yml
 
 jobs:
   deploy:
