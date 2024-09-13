@@ -1,16 +1,17 @@
-import { component$, Slot } from "@builder.io/qwik";
+import { component$, Slot, useSignal } from "@builder.io/qwik";
 
-import Header from "../components/starter/header/header";
-import Footer from "../components/starter/footer/footer";
+import Header from "@components/header/header";
+import Drawer from "@components/drawer/drawer";
 
 export default component$(() => {
+  const isDrawerOpenS = useSignal(false);
   return (
     <>
-      <Header />
+      <Drawer isDrawerOpenS={isDrawerOpenS}></Drawer>
+      <Header isDrawerOpenS={isDrawerOpenS} />
       <main>
         <Slot />
       </main>
-      <Footer />
     </>
   );
 });

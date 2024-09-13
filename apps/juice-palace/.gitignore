@@ -44,3 +44,5 @@ lerna-debug.log*
 !.env.example
 
 .turbo
+
+.nx/cache

@@ -20,7 +20,8 @@
     "paths": {
       "~/*": ["./src/*"],
       "shared/*": ["./shared/*"],
-      "tina/*": ["./tina/*"]
+      "tina/*": ["./tina/*"],
+      "@components/*": ["./src/components/ui/*"]
     }
   },
   "files": ["./.eslintrc.cjs"],
@@ -31,5 +32,6 @@
     "./*.config.ts",
     "src/constants",
     "src/helpers"
-  ]
+  ],
+  "exclude": ["./**/*.js"]
 }

@@ -8,6 +8,7 @@ import {
   Img,
   Link,
   Preview,
+  render,
   Row,
   Section,
   Tailwind,
@@ -15,27 +16,26 @@ import {
 } from "@react-email/components";
 
 export type EventHireInitialToJp = {
-  enquirerFullName: string;
-  enquirerPreferredName: string;
   enquirerEmail: string;
+  enquirerFullName: string;
   enquirerMessage: string;
+  enquirerPhoneNumber: string;
 };
 
 export function EventHireInitialToJP({
   enquirerFullName,
-  enquirerPreferredName,
   enquirerEmail,
   enquirerMessage,
 }: EventHireInitialToJp) {
-  return (
+  return render(
     <Html
       lang="en"
       dir="ltr"
     >
       <Head />
       <Preview>
-        {enquirerPreferredName} has filled out the event hire form saying:{" "}
-        {enquirerMessage}
+        {enquirerFullName.split(" ")[0] || enquirerFullName} has filled out the
+        event hire form saying: {enquirerMessage}
       </Preview>
       <Tailwind>
         <Body>
@@ -78,9 +78,7 @@ export function EventHireInitialToJP({
 
 EventHireInitialToJP.PreviewProps = {
   enquirerFullName: "John Mathers",
-  enquirerPreferredName: "John",
   enquirerEmail: "jm@gmail.com",
   enquirerMessage: "I want coffee at my kids birthday party",
+  enquirerPhoneNumber: "I want coffee at my kids birthday party",
 } satisfies EventHireInitialToJp;
-
-export default EventHireInitialToJP;

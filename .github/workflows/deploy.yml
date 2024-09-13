@@ -1,9 +1,16 @@
 name: Deploy
 on:
   push:
-    branches: main
+    branches:
+      - main
+      - site/**
+    paths:
+      - apps/site/**
   pull_request:
-    branches: main
+    branches:
+      - main
+    paths:
+      - apps/site/**
 
 jobs:
   deploy:
@@ -29,7 +36,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -45,7 +52,7 @@ jobs:
           node-version: lts/*
 
       - name: Build step
-        run: "pnpm build"
+        run: 'pnpm build'
         env:
           TINA_CLIENT_ID: ${{ secrets.TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
@@ -53,6 +60,6 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "juice-palace"
-          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
-          root: "apps/juice-palace/dist"
+          project: 'juice-palace'
+          entrypoint: 'https://deno.land/std@0.217.0/http/file_server.ts'
+          root: 'apps/site/dist'

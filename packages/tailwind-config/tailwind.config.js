@@ -1,50 +1,100 @@
+const plugin = require("tailwindcss/plugin");
+const colours = require("tailwindcss/colors");
+
 const HEADER_HEIGHT = 80;
 
-// We want each package to be responsible for its own content.
+/** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: 'class',
+  darkMode: "class",
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".press": {
+          transform: "var(--transform-press)",
+        },
+        ".appear": {
+          opacity: 1,
+        },
+        ".disappear": {
+          opacity: 0,
+        },
+      });
+    }),
+  ],
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      grey: {
-        50: 'hsl(var(--colour-grey-50) / <alpha-value>)',
-        100: 'hsl(var(--colour-grey-100) / <alpha-value>)',
-        200: 'hsl(var(--colour-grey-200) / <alpha-value>)',
-        300: 'hsl(var(--colour-grey-300) / <alpha-value>)',
-        400: 'hsl(var(--colour-grey-400) / <alpha-value>)',
-        500: 'hsl(var(--colour-grey-500) / <alpha-value>)',
-        600: 'hsl(var(--colour-grey-600) / <alpha-value>)',
-        700: 'hsl(var(--colour-grey-700) / <alpha-value>)',
-        800: 'hsl(var(--colour-grey-800) / <alpha-value>)',
-        900: 'hsl(var(--colour-grey-900) / <alpha-value>)',
-        950: 'hsl(var(--colour-grey-950) / <alpha-value>)',
-      },
-      primary: {
-        DEFAULT: 'hsl(var(--colour-primary) / <alpha-value>)',
-        active: 'hsl(var(--colour-primary-active) / <alpha-value>)',
-        content: 'hsl(var(--colour-primary-content) / <alpha-value>)',
-        hover: 'hsl(var(--colour-primary-hover) / <alpha-value>)',
-      },
-      // primary: {
-      //   DEFAULT: 'hsl(var(--colour-primary) / <alpha-value>)',
-      //   active: 'hsl(var(--colour-primary-active) / <alpha-value>)',
-      //   content: 'hsl(var(--colour-primary-content) / <alpha-value>)',
-      //   hover: 'hsl(var(--colour-primary-hover) / <alpha-value>)',
-      // },
+      transparent: "transparent",
+      current: "currentColor",
+      grey: colours.slate,
     },
     extend: {
       animation: {
-        ripple: 'ripple 300ms linear 1',
+        ripple: "ripple 300ms linear 1",
       },
       boxShadow: {
-        'inner-btn': 'inset 0 -2px 2px 0 rgb(0 0 0 / 0.25);',
-        'button-bezel':
-          'inset 0 2px 0 0 hsla(0,0%,100%,.2),inset 0 -1px 0 0 rgba(0,0,0,.25),0 2px 6px 0 rgba(0,0,0,.1)',
+        base: "var(--shadow-base)",
+        sm: "var(--shadow-sm)",
+        DEFAULT: "var(--shadow)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        xl: "var(--shadow-xl)",
+        "2xl": "var(--shadow-2xl)",
+        inner: "var(--shadow-inner)",
+        "inner-btn": "inset 0 -2px 2px 0 rgb(0 0 0 / 0.25);",
+        "button-bezel":
+          "inset 0 2px 0 0 hsla(0,0%,100%,.2),inset 0 -1px 0 0 rgba(0,0,0,.25),0 2px 6px 0 rgba(0,0,0,.1)",
       },
-      cursor: {
-        // eslint-disable-next-line quotes
-        tree: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🌲</text></svg>"),auto`,
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        alert: {
+          DEFAULT: "hsl(var(--alert))",
+          foreground: "hsl(var(--alert-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+      },
+      borderRadius: {
+        base: "var(--border-radius)",
+        sm: "calc(var(--border-radius) + 0.125rem)",
+        DEFAULT: "calc(var(--border-radius) + 0.25rem)",
+        md: "calc(var(--border-radius) + 0.375rem)",
+        lg: "calc(var(--border-radius) + 0.5rem)",
+        xl: "calc(var(--border-radius) + 0.75rem)",
+        "2xl": "calc(var(--border-radius) + 1rem)",
+        "3xl": "calc(var(--border-radius) + 1.5rem)",
+      },
+      borderWidth: {
+        base: "var(--border-width)",
+        DEFAULT: "calc(var(--border-width) + 1px)",
+        2: "calc(var(--border-width) + 2px)",
+        4: "calc(var(--border-width) + 4px)",
+        8: "calc(var(--border-width) + 8px)",
       },
       height: {
         header: `${HEADER_HEIGHT}px`,
@@ -59,13 +109,13 @@ const config = {
       },
       keyframes: {
         ripple: {
-          '0%': {
-            transform: 'scale(0)',
-            opacity: '100%',
+          "0%": {
+            transform: "scale(0)",
+            opacity: "100%",
           },
-          '100%': {
-            transform: 'scale(4)',
-            opacity: '0%',
+          "100%": {
+            transform: "scale(4)",
+            opacity: "0%",
           },
         },
       },
