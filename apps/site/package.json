@@ -4,8 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "dev.tina": "tinacms dev -c \"astro dev\"",
     "build": "astro check && astro build",
+    "build.tina": "astro check && tinacms build && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -19,6 +20,8 @@
     "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "@juice-palace/tailwind-config": "workspace:^"
+    "@juice-palace/tailwind-config": "workspace:^",
+    "@tinacms/cli": "^1.5.45",
+    "tinacms": "^1.6.3"
   }
 }
