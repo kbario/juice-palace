@@ -1,0 +1,17 @@
+---
+import client from '../../tina/__generated__/client';
+import { Button } from '../components/shared/button/button';
+import Layout from '../layouts/Layout.astro';
+import Menu from '../components/screens/menu';
+
+const asdf = await client.queries.groupsConnection();
+---
+
+<Layout title='Welcome to Astro.'>
+  <Menu
+    client:idle
+    groups={asdf}
+  />
+</Layout>
+
+<style></style>
