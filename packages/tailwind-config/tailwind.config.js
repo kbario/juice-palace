@@ -1,7 +1,9 @@
-const plugin = require('tailwindcss/plugin');
-const colours = require('tailwindcss/colors');
+import plugin from 'tailwindcss/plugin';
+import colours from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const HEADER_HEIGHT = 80;
+const SECONDARY_HEADER_HEIGHT = 64;
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -31,19 +33,19 @@ const config = {
       animation: {
         ripple: 'ripple 300ms linear 1',
       },
-      boxShadow: {
-        base: 'var(--shadow-base)',
-        sm: 'var(--shadow-sm)',
-        DEFAULT: 'var(--shadow)',
-        md: 'var(--shadow-md)',
-        lg: 'var(--shadow-lg)',
-        xl: 'var(--shadow-xl)',
-        '2xl': 'var(--shadow-2xl)',
-        inner: 'var(--shadow-inner)',
-        'inner-btn': 'inset 0 -2px 2px 0 rgb(0 0 0 / 0.25);',
-        'button-bezel':
-          'inset 0 2px 0 0 hsla(0,0%,100%,.2),inset 0 -1px 0 0 rgba(0,0,0,.25),0 2px 6px 0 rgba(0,0,0,.1)',
-      },
+      // boxShadow: {
+      //   base: 'var(--shadow-base)',
+      //   sm: 'var(--shadow-sm)',
+      //   DEFAULT: 'var(--shadow)',
+      //   md: 'var(--shadow-md)',
+      //   lg: 'var(--shadow-lg)',
+      //   xl: 'var(--shadow-xl)',
+      //   '2xl': 'var(--shadow-2xl)',
+      //   inner: 'var(--shadow-inner)',
+      //   'inner-btn': 'inset 0 -2px 2px 0 rgb(0 0 0 / 0.25);',
+      //   'button-bezel':
+      //     'inset 0 2px 0 0 hsla(0,0%,100%,.2),inset 0 -1px 0 0 rgba(0,0,0,.25),0 2px 6px 0 rgba(0,0,0,.1)',
+      // },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -79,16 +81,16 @@ const config = {
           foreground: 'hsl(var(--popover-foreground))',
         },
       },
-      borderRadius: {
-        base: 'var(--border-radius)',
-        sm: 'calc(var(--border-radius) + 0.125rem)',
-        DEFAULT: 'calc(var(--border-radius) + 0.25rem)',
-        md: 'calc(var(--border-radius) + 0.375rem)',
-        lg: 'calc(var(--border-radius) + 0.5rem)',
-        xl: 'calc(var(--border-radius) + 0.75rem)',
-        '2xl': 'calc(var(--border-radius) + 1rem)',
-        '3xl': 'calc(var(--border-radius) + 1.5rem)',
-      },
+      // borderRadius: {
+      //   base: 'var(--border-radius)',
+      //   sm: 'calc(var(--border-radius) + 0.125rem)',
+      //   DEFAULT: 'calc(var(--border-radius) + 0.25rem)',
+      //   md: 'calc(var(--border-radius) + 0.375rem)',
+      //   lg: 'calc(var(--border-radius) + 0.5rem)',
+      //   xl: 'calc(var(--border-radius) + 0.75rem)',
+      //   '2xl': 'calc(var(--border-radius) + 1rem)',
+      //   '3xl': 'calc(var(--border-radius) + 1.5rem)',
+      // },
       borderWidth: {
         base: 'var(--border-width)',
         DEFAULT: 'calc(var(--border-width) + 1px)',
@@ -96,8 +98,13 @@ const config = {
         4: 'calc(var(--border-width) + 4px)',
         8: 'calc(var(--border-width) + 8px)',
       },
+      fontFamily: {
+        sans: ['Noto Sans Variable', ...defaultTheme.fontFamily.sans],
+      },
       height: {
         header: `${HEADER_HEIGHT}px`,
+        'secondary-header': `${SECONDARY_HEADER_HEIGHT}px`,
+        'combined-header': `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
         view: [
           `calc(100vh - ${HEADER_HEIGHT}px)`,
           `calc(100svh - ${HEADER_HEIGHT}px)`,
@@ -109,6 +116,8 @@ const config = {
       },
       minHeight: {
         header: `${HEADER_HEIGHT}px`,
+        'secondary-header': `${SECONDARY_HEADER_HEIGHT}px`,
+        'combined-header': `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
         view: [
           `calc(100vh - ${HEADER_HEIGHT}px)`,
           `calc(100svh - ${HEADER_HEIGHT}px)`,
@@ -132,6 +141,8 @@ const config = {
       },
       spacing: {
         header: `${HEADER_HEIGHT}px`,
+        'secondary-header': `${SECONDARY_HEADER_HEIGHT}px`,
+        'combined-header': `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
       },
     },
   },

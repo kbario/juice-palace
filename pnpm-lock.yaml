@@ -120,9 +120,18 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.15.6)(tailwindcss@3.4.11)
+      '@fontsource-variable/noto-sans':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@kobalte/core':
         specifier: ^0.13.6
         version: 0.13.6(solid-js@1.8.22)
+      '@solid-primitives/intersection-observer':
+        specifier: ^2.1.6
+        version: 2.1.6(solid-js@1.8.22)
+      '@solid-primitives/scheduled':
+        specifier: ^1.4.3
+        version: 1.4.3(solid-js@1.8.22)
       astro:
         specifier: ^4.15.6
         version: 4.15.6(typescript@5.6.2)
@@ -2331,6 +2340,10 @@ packages:
 
   /@floating-ui/utils@0.2.7:
     resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
+    dev: false
+
+  /@fontsource-variable/noto-sans@5.1.0:
+    resolution: {integrity: sha512-mLn33cgmryVFjpHoHy/lx6/DsRvp8kbxDmfMbMNl75eY+bVubad3u6oGSCyc8izcSNZAhAlXdoFW7mCnI2l63w==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.18.2:
@@ -5619,6 +5632,15 @@ packages:
       solid-js: 1.8.22
     dev: false
 
+  /@solid-primitives/intersection-observer@2.1.6(solid-js@1.8.22):
+    resolution: {integrity: sha512-SeiCmN/R46Z+o9+5HhIQzSor0DqVPyo4ROLQMvCI8AsGZl/5nHlWzHTTbWPeukVUXTgb04wfC3DUo9IzF/XloA==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.2.3(solid-js@1.8.22)
+      solid-js: 1.8.22
+    dev: false
+
   /@solid-primitives/keyed@1.2.2(solid-js@1.8.22):
     resolution: {integrity: sha512-oBziY40JK4XmJ57XGkFl8j0GtEarSu0hhjdkUQgqL/U0QQE3TZrRo9uhgH7I6VGJKBKG7SAraTPE6S5lVLM1ow==}
     peerDependencies:
@@ -5684,6 +5706,14 @@ packages:
       solid-js: ^1.6.12
     dependencies:
       '@solid-primitives/utils': 6.2.3(solid-js@1.8.22)
+      solid-js: 1.8.22
+    dev: false
+
+  /@solid-primitives/scheduled@1.4.3(solid-js@1.8.22):
+    resolution: {integrity: sha512-HfWN5w7b7FEc6VPLBKnnE302h90jsLMuR28Fcf7neRGGf8jBj6wm6/UFQ00VlKexHFMR6KQ2u4VBh5a1ZcqM8g==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
       solid-js: 1.8.22
     dev: false
 
@@ -10712,11 +10742,11 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      browserslist: 4.23.3
-      caniuse-lite: 1.0.30001660
+      browserslist: 4.23.0
+      caniuse-lite: 1.0.30001616
       fraction.js: 4.3.7
       normalize-range: 0.1.2
-      picocolors: 1.1.0
+      picocolors: 1.0.0
       postcss: 8.4.45
       postcss-value-parser: 4.2.0
     dev: false

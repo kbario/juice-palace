@@ -5,7 +5,7 @@ export const Link: ParentComponent<LinkRootProps> = (props) => {
   const [local, rest] = splitProps(props, ['children']);
   return (
     <Root
-      class='bg-grey-300 rounded px-2 py-1.5'
+      class='rounded px-2 py-1.5 hover:bg-grey-900/10 hover:cursor-pointer'
       {...rest}>
       {local.children}
     </Root>

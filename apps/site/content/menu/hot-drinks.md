@@ -19,7 +19,7 @@ subgroups:
             price: 4.4
           - size: Large
             price: 4.9
-      - title: Flat White | Cappuccino
+      - title: 'Flat White, Cappuccino'
         sizing:
           - size: Small
             price: 5.4
