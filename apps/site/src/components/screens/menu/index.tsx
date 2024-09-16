@@ -6,15 +6,14 @@ import {
   Show,
   type Accessor,
   type ParentComponent,
-  type Setter,
 } from 'solid-js';
 import client from '../../../../tina/__generated__/client';
 import type {
-  Groups,
-  GroupsConnectionQuery,
-  GroupsItems,
-  GroupsSubgroups,
-  GroupsSubgroupsItems,
+  MenuConnectionQuery,
+  MenuSection,
+  MenuSectionItems,
+  MenuSectionSubgroups,
+  MenuSectionSubgroupsItems,
 } from '../../../../tina/__generated__/types';
 import { createTina, tinaField } from '../../../../tina/tina-helpers';
 import { Dietary } from '../../../constants/dietary';
@@ -25,11 +24,11 @@ import { isServer } from 'solid-js/web';
 import { debounce, throttle } from '@solid-primitives/scheduled';
 
 type Group = Pick<
-  Groups,
+  MenuSection,
   'title' | '__typename' | 'desc' | 'price' | 'items' | 'subgroups'
 >;
 type Subgroup = Pick<
-  GroupsSubgroups,
+  MenuSectionSubgroups,
   'title' | '__typename' | 'desc' | 'price' | 'items'
 >;
 
@@ -40,14 +39,14 @@ const makeId = (id: string | undefined): string | undefined =>
   '-section';
 
 export default (props: {
-  groups: Awaited<ReturnType<typeof client.queries.groupsConnection>>;
+  menu: Awaited<ReturnType<typeof client.queries.menuConnection>>;
 }) => {
-  const initialData = createTina<GroupsConnectionQuery>(props.groups).data;
+  const initialData = createTina<MenuConnectionQuery>(props.menu).data;
   const data = createMemo(() =>
-    initialData()?.groupsConnection?.edges?.map((x) => x?.node)
+    initialData()?.menuConnection?.edges?.flatMap((x) => x?.node?.section)
   );
   const courses: Accessor<string[]> = createMemo(() =>
-    (data()?.map((x) => x?.title) || []).filter((x): x is string => !!x)
+    (data()?.flatMap((x) => x?.title) || []).filter((x): x is string => !!x)
   );
   const courseStore = createMemo(() =>
     courses().reduce((acc, idv, idx) => {
@@ -69,14 +68,19 @@ export default (props: {
         <ContentContainer>
           <h1 class='text-3xl font-bold w-full text-grey-600'>Menu</h1>
           <For each={data()}>
-            {(group) => (
-              <Section
-                setCourseTracker={setCourseTracker}
-                group={group}
-              />
-            )}
+            {(group) => {
+              return (
+                <Section
+                  setCourseTracker={setCourseTracker}
+                  group={group}
+                />
+              );
+            }}
           </For>
           <DietaryLegend dietary={dietary} />
+          <footer class='h-20 flex items-center justify-center'>
+            © 2024 Juice Palace
+          </footer>
         </ContentContainer>
       </PageContainer>
     </>
@@ -171,13 +175,7 @@ const Nav = (props: {
                     isActiveLink(course),
                   'text-zinc-600 border-surface-elevate-xl':
                     !isActiveLink(course),
-                }}
-                // onClick={() => {
-                //   document
-                //     .getElementById(makeId(course) || '')
-                //     ?.scrollIntoView();
-                // }}
-              >
+                }}>
                 {course}
               </a>
             );
@@ -189,7 +187,11 @@ const Nav = (props: {
 };
 
 const Section = (props: {
-  group: Partial<Group | Subgroup> | undefined | null;
+  group:
+    | Partial<MenuSection>
+    | Partial<MenuSectionSubgroups>
+    | undefined
+    | null;
   setCourseTracker?: SetStoreFunction<CourseTracker>;
 }) => {
   let sectionRef: HTMLElement;
@@ -240,7 +242,7 @@ const Section = (props: {
 
       <Show
         when={
-          props.group?.__typename === 'Groups' &&
+          props.group?.__typename === 'MenuSection' &&
           !!props.group?.subgroups?.length
         }>
         <ul class='flex flex-col gap-1'>
@@ -264,11 +266,11 @@ const MenuHeading = (group: { data: Partial<Group | Subgroup> }) => {
         id={makeId(group.data.title)}
         class='flex justify-between'
         classList={{
-          'text-3xl': group.data.__typename === 'Groups',
-          'text-2xl': group.data.__typename === 'GroupsSubgroups',
+          'text-3xl': group.data.__typename === 'MenuSection',
+          'text-2xl': group.data.__typename === 'MenuSectionSubgroups',
         }}>
         <Show
-          when={group.data.__typename === 'Groups'}
+          when={group.data.__typename === 'MenuSection'}
           fallback={
             <h3 data-tina-field={tinaField(group.data, 'title')}>
               {group.data.title}
@@ -295,7 +297,9 @@ const MenuHeading = (group: { data: Partial<Group | Subgroup> }) => {
   );
 };
 
-const Item = (item: { data: Partial<GroupsItems | GroupsSubgroupsItems> }) => {
+const Item = (item: {
+  data: Partial<MenuSectionItems | MenuSectionSubgroupsItems>;
+}) => {
   return (
     <div class='flex justify-between'>
       <div class='flex flex-col'>
@@ -351,7 +355,7 @@ const Item = (item: { data: Partial<GroupsItems | GroupsSubgroupsItems> }) => {
 };
 
 const ItemTitle = (props: {
-  item: Partial<GroupsItems | GroupsSubgroupsItems>;
+  item: Partial<MenuSectionItems | MenuSectionSubgroupsItems>;
 }) => (
   <h4
     class='text-lg'

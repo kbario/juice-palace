@@ -1,16 +1,18 @@
-import type { TinaField } from "tinacms";
-import { defineConfig } from "tinacms";
+import type { TinaField } from 'tinacms';
+import { defineConfig } from 'tinacms';
 import type {
-  GroupsItems,
-  GroupsItemsSizing,
-  GroupsSubgroups,
-} from "./__generated__/types";
+  MenuSectionItems,
+  MenuSectionItemsSizing,
+  MenuSectionSubgroups,
+  MenuSectionSubgroupsItems,
+  MenuSectionSubgroupsItemsSizing,
+} from './__generated__/types';
 
 export const Dietary = {
-  Vegan: "Vegan",
-  Vegetarian: "Vegetarian",
-  GlutenFree: "Gluten Free",
-  ContainsNuts: "Contains Nuts",
+  Vegan: 'Vegan',
+  Vegetarian: 'Vegetarian',
+  GlutenFree: 'Gluten Free',
+  ContainsNuts: 'Contains Nuts',
 } as const;
 
 export const DietaryOptions = Object.values(Dietary);
@@ -20,46 +22,46 @@ const branch =
   process.env.GITHUB_BRANCH ||
   process.env.GITHUB_HEAD_REF ||
   process.env.HEAD ||
-  "main";
+  'main';
 
 const numberValidation = (val?: string): string | undefined | void => {
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  if (!val || val?.trim() === "") return;
+  if (!val || val?.trim() === '') return;
   if (!isNaN(Number(val))) return;
-  return "This needs to be a number";
+  return 'This needs to be a number';
 };
 
 const numberStringSettings = {
   parse: (val: string) => val,
   validate: numberValidation,
-} satisfies TinaField<false>["ui"];
+} satisfies TinaField<false>['ui'];
 
 const menuItems = [
   {
-    type: "string",
-    label: "Menu Item Title",
-    name: "title",
+    type: 'string',
+    label: 'Menu Item Title',
+    name: 'title',
     required: true,
   },
   {
-    type: "string",
-    label: "Menu Item Description",
-    name: "desc",
+    type: 'string',
+    label: 'Menu Item Description',
+    name: 'desc',
   },
   {
-    type: "string",
-    label: "Menu Item Price",
-    name: "price",
+    type: 'string',
+    label: 'Menu Item Price',
+    name: 'price',
     required: false,
     ui: numberStringSettings,
   },
   {
     list: true,
-    label: "Menu Item Sizing",
-    name: "sizing",
-    type: "object",
+    label: 'Menu Item Sizing',
+    name: 'sizing',
+    type: 'object',
     ui: {
-      itemProps: (item: GroupsItemsSizing) => {
+      itemProps: (item: MenuSectionItemsSizing) => {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (!item || !item.size || !item.price) return {};
         // Field values are accessed by item?.<Field name>
@@ -68,75 +70,84 @@ const menuItems = [
     },
     fields: [
       {
-        type: "string",
-        label: "Menu Item Size",
-        name: "size",
-        options: ["Small", "Large"],
+        type: 'string',
+        label: 'Menu Item Size',
+        name: 'size',
+        options: ['Small', 'Large'],
         required: true,
       },
       {
-        type: "number",
-        label: "Menu Item Price",
-        name: "price",
+        type: 'number',
+        label: 'Menu Item Price',
+        name: 'price',
         required: true,
       },
     ],
   },
   {
     list: true,
-    label: "Dietary",
-    name: "dietary",
-    type: "string",
+    label: 'Dietary',
+    name: 'dietary',
+    type: 'string',
     options: DietaryOptions,
   },
 ] satisfies TinaField<false>[];
 
+const asdf = (item: MenuSectionItems | MenuSectionSubgroupsItems) => {
+  if (!item.title) return {};
+  let label = item.title;
+  const price = item.sizing?.length
+    ? item.sizing
+        .filter((x) => !!x)
+        .reduce(
+          (
+            acc: string,
+            x: MenuSectionItemsSizing | MenuSectionSubgroupsItemsSizing,
+            i: number,
+            arr: (MenuSectionItemsSizing | MenuSectionSubgroupsItemsSizing)[]
+          ) =>
+            (acc += `${x.size}: $${x.price}${i !== arr.length - 1 ? ', ' : ''}`),
+          ''
+        )
+    : item.price || item.price === '0'
+      ? `$${item.price}`
+      : null;
+  if (price) label = `${label} - ${price}`;
+  if (item.desc) label = `${label} - ${item.desc}`;
+  // Field values are accessed by item?.<Field name>
+  return { label };
+};
+
 const groupObject: TinaField<false>[] = [
   {
-    type: "string",
-    label: "Group Title",
-    name: "title",
+    type: 'string',
+    label: 'Section Title',
+    name: 'title',
+    description: '',
     required: true,
   },
   {
-    type: "string",
-    label: "Group Description",
-    name: "desc",
+    type: 'string',
+    label: 'Section Description',
+    name: 'desc',
+    description: '',
   },
   {
-    type: "string",
-    label: "Group Price",
-    name: "price",
+    type: 'string',
+    label: 'Section Price',
+    name: 'price',
+    description: '',
     ui: numberStringSettings,
   },
   {
     list: true,
-    label: "Menu Items",
-    name: "items",
-    type: "object",
+    label: 'Section Items',
+    name: 'items',
+    type: 'object',
+    description: '',
     fields: menuItems,
     ui: {
-      itemProps: (item) => {
-        if (!item.title) return {};
-        let label = item.title;
-        const price = item.sizing?.length
-          ? item.sizing.reduce(
-              (
-                acc: string,
-                x: GroupsItemsSizing,
-                i: number,
-                arr: GroupsItems[],
-              ) =>
-                (acc += `${x.size}: $${x.price}${i !== arr.length - 1 ? ", " : ""}`),
-              "",
-            )
-          : item.price || item.price === 0
-            ? `$${item.price}`
-            : null;
-        if (price) label = `${label} - ${price}`;
-        // Field values are accessed by item?.<Field name>
-        return { label };
-      },
+      itemProps: asdf,
     },
   },
 ];
@@ -145,17 +156,17 @@ const subgroups = groupObject.map((x: TinaField<false>) => ({
   ...x,
   label:
     x.label &&
-    typeof x.label === "string" &&
-    x.label.replace("Group", "Subgroup"),
+    typeof x.label === 'string' &&
+    x.label.replace('Section', 'Subsection'),
 }));
 const subgroupObject = {
   list: true,
-  label: "Menu Subgroups",
-  name: "subgroups",
-  type: "object",
+  label: 'Menu Subsections',
+  name: 'subgroups',
+  type: 'object',
   fields: subgroups,
   ui: {
-    itemProps: (item: GroupsSubgroups) => {
+    itemProps: (item: MenuSectionSubgroups) => {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       return { label: item?.title };
     },
@@ -171,60 +182,118 @@ export default defineConfig({
   token: process.env.TINA_TOKEN || import.meta.env.TINA_TOKEN,
 
   build: {
-    outputFolder: "admin",
-    publicFolder: "public",
+    outputFolder: 'admin',
+    publicFolder: 'public',
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+      mediaRoot: '',
+      publicFolder: 'public',
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
       {
-        label: "Menu Groups",
-        name: "groups",
-        path: "content/menu",
+        label: 'Menu',
+        name: 'menu',
+        path: 'content/menu',
         ui: {
+          // global: true,
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
           router: () => {
-            return "/menu";
+            return '/menu';
           },
         },
-        fields: [...groupObject, subgroupObject],
-      },
-      {
-        label: "Opening Hours",
-        name: "openingHours",
-        path: "content/openingHours",
         fields: [
           {
-            type: "string",
-            label: "Day of the Week",
-            name: "dayOfWeek",
-            required: true,
-            options: [
-              "Sunday",
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
+            type: 'object',
+            label: 'Sections',
+            name: 'section',
+            list: true,
+            ui: {
+              itemProps: asdf,
+            },
+            fields: [...groupObject, subgroupObject],
+          },
+        ],
+      },
+      {
+        label: 'Opening Hours',
+        name: 'openingHours',
+        path: 'content/openingHours',
+        ui: {
+          // global: true,
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          // router: () => {
+          //   return '/menu';
+          // },
+        },
+        fields: [
+          {
+            type: 'object',
+            label: 'Locations',
+            name: 'locations',
+            fields: [
+              {
+                type: 'string',
+                name: 'regularity',
+                required: true,
+                options: ['Regular', 'One-off'],
+              },
+              {
+                type: 'string',
+                name: 'displayName',
+                required: true,
+              },
+              {
+                type: 'string',
+                name: 'mapLocation',
+                required: true,
+              },
+              {
+                label: 'Date',
+                name: 'date',
+                type: 'datetime',
+                ui: {
+                  dateFormat: undefined,
+                  timeFormat: 'HH:mm',
+                },
+              },
             ],
           },
           {
-            type: "string",
-            label: "Opening Time",
-            name: "openingTime",
+            type: 'string',
+            label: 'Day of the Week',
+            name: 'dayOfWeek',
+            required: true,
+            options: [
+              'Sunday',
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday',
+              'Friday',
+              'Saturday',
+            ],
+          },
+          {
+            type: 'string',
+            label: 'Opening Time',
+            name: 'openingTime',
             required: true,
             ui: numberStringSettings,
           },
           {
-            type: "string",
-            label: "Closing Time",
-            name: "closingTime",
+            type: 'string',
+            label: 'Closing Time',
+            name: 'closingTime',
             required: true,
             ui: numberStringSettings,
           },
