@@ -6,6 +6,9 @@ import type {
   MenuSectionSubgroups,
   MenuSectionSubgroupsItems,
   MenuSectionSubgroupsItemsSizing,
+  OpeningHours,
+  OpeningHoursLocations,
+  OpeningHoursLocationsTimes,
 } from './__generated__/types';
 
 export const Dietary = {
@@ -114,6 +117,15 @@ const asdf = (item: MenuSectionItems | MenuSectionSubgroupsItems) => {
       : null;
   if (price) label = `${label} - ${price}`;
   if (item.desc) label = `${label} - ${item.desc}`;
+  // Field values are accessed by item?.<Field name>
+  return { label };
+};
+
+const locationDayTimeDisplay = (item: OpeningHoursLocationsTimes) => {
+  if (!item.day) return {};
+  let label = item.day;
+  const time = [item.openTime, item.closeTime].filter(Boolean).join('-');
+  if (time) label = `${label}: ${time}`;
   // Field values are accessed by item?.<Field name>
   return { label };
 };
@@ -231,71 +243,76 @@ export default defineConfig({
             create: false,
             delete: false,
           },
-          // router: () => {
-          //   return '/menu';
-          // },
+          router: () => {
+            return '/contact';
+          },
         },
         fields: [
           {
             type: 'object',
             label: 'Locations',
             name: 'locations',
+            list: true,
+            ui: {
+              itemProps: (loc: OpeningHoursLocations) => ({
+                label: loc.displayName,
+              }),
+            },
             fields: [
               {
                 type: 'string',
-                name: 'regularity',
-                required: true,
-                options: ['Regular', 'One-off'],
-              },
-              {
-                type: 'string',
                 name: 'displayName',
+                label: 'Name',
                 required: true,
               },
               {
                 type: 'string',
+                name: 'desc',
+                label: 'Description',
+              },
+              {
+                type: 'string',
+                label: 'Map String',
+                description: 'put the string from google maps here',
                 name: 'mapLocation',
                 required: true,
               },
               {
-                label: 'Date',
-                name: 'date',
-                type: 'datetime',
+                label: 'Days and Times',
+                name: 'times',
+                type: 'object',
+                list: true,
                 ui: {
-                  dateFormat: undefined,
-                  timeFormat: 'HH:mm',
+                  itemProps: locationDayTimeDisplay,
                 },
+                fields: [
+                  {
+                    label: 'Open Time',
+                    name: 'openTime',
+                    type: 'string',
+                  },
+                  {
+                    label: 'Close Time',
+                    name: 'closeTime',
+                    type: 'string',
+                  },
+                  {
+                    label: 'Day',
+                    name: 'day',
+                    type: 'string',
+                    options: [
+                      'Monday',
+                      'Tuesday',
+                      'Wednesday',
+                      'Thursday',
+                      'Friday',
+                      'Saturday',
+                      'Sunday',
+                    ],
+                  },
+                ],
               },
             ],
-          },
-          {
-            type: 'string',
-            label: 'Day of the Week',
-            name: 'dayOfWeek',
-            required: true,
-            options: [
-              'Sunday',
-              'Monday',
-              'Tuesday',
-              'Wednesday',
-              'Thursday',
-              'Friday',
-              'Saturday',
-            ],
-          },
-          {
-            type: 'string',
-            label: 'Opening Time',
-            name: 'openingTime',
-            required: true,
-            ui: numberStringSettings,
-          },
-          {
-            type: 'string',
-            label: 'Closing Time',
-            name: 'closingTime',
-            required: true,
-            ui: numberStringSettings,
           },
         ],
       },

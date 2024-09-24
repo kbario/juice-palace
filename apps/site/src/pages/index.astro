@@ -1,22 +1,30 @@
 ---
-import { Button } from '../components/shared/button/button';
 import { Link } from '../components/shared/link/link';
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import mainImage from '../images/juice-palace-back-on-beach.jpg';
 ---
 
 <Layout title='Juice Palace'>
   <div class='p-8'>
-    <section class='h-viewi flex gap-4 flex-col items-center justify-center'>
-      <h1 class='text-4xl text-center tracking-normal'>
-        A coffee van to suit all occasions
-      </h1>
-      <p class='text-center'>
-        We make great coffee and snacks. Perfect for the beach or your next
-        function
-      </p>
-      <div class='flex gap-2'>
-        <Link href='/menu'>See our menu</Link>
-        <Button>Find out where we are</Button>
+    <section
+      class='h-viewi lg:flex-row-reverse lg:gap-8 flex gap-4 flex-col items-center justify-center'>
+      <Image
+        src={mainImage}
+        width={500}
+        alt=''
+      />
+      <div
+        class='flex gap-4 flex-col items-center justify-center lg:max-w-[500px]'>
+        <h1 class='text-center'>A coffee van to suit all occasions</h1>
+        <p class='text-center'>
+          We make great coffee and snacks. Perfect for the beach or your next
+          function
+        </p>
+        <div class='flex gap-2'>
+          <Link href='/menu'>See our menu</Link>
+          <Link href='/contact'>Find out where we are</Link>
+        </div>
       </div>
     </section>
     <footer class='h-20 flex items-center justify-center'>

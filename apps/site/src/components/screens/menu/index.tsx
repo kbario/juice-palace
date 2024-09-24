@@ -66,16 +66,14 @@ export default (props: {
           courses={courses}
         />
         <ContentContainer>
-          <h1 class='text-3xl font-bold w-full text-grey-600'>Menu</h1>
+          <h1 class=''>Menu</h1>
           <For each={data()}>
-            {(group) => {
-              return (
-                <Section
-                  setCourseTracker={setCourseTracker}
-                  group={group}
-                />
-              );
-            }}
+            {(group) => (
+              <Section
+                setCourseTracker={setCourseTracker}
+                group={group}
+              />
+            )}
           </For>
           <DietaryLegend dietary={dietary} />
           <footer class='h-20 flex items-center justify-center'>

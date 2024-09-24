@@ -4,6 +4,7 @@ import { Link } from '../components/shared/link/link';
 import { JuicePalaceLogo } from '../components/shared/logo/logo';
 import '@fontsource-variable/noto-sans';
 import { MobileNav } from '../components/shared/mobile-nav/mobile-nav';
+import '../styles/global.css';
 
 const headerLinks: {
   display: string;
@@ -12,6 +13,10 @@ const headerLinks: {
   {
     display: 'Menu',
     link: '/menu',
+  },
+  {
+    display: 'Contact',
+    link: '/contact',
   },
 ];
 
@@ -53,7 +58,7 @@ const { title } = Astro.props;
       class='sticky top-0 flex justify-between h-header items-center p-8 bg-grey-200'>
       <Link href='/'><JuicePalaceLogo /></Link>
       <nav>
-        <ul>
+        <ul class='flex gap-1'>
           {
             headerLinks.map((link) => (
               <li>
@@ -70,4 +75,3 @@ const { title } = Astro.props;
     </main>
   </body>
 </html>
-<style is:global></style>
