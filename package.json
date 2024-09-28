@@ -7,7 +7,7 @@
     "pnpm": ">=8"
   },
   "scripts": {
-    "build.site": "cd apps/site && pnpm build.tina",
+    "build.site": "cd apps/site && pnpm build",
     "cs.add": "pnpm changeset",
     "lint": "turbo run lint",
     "test": "turbo run test"
