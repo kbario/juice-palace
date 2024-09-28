@@ -5,5 +5,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/admin': '/admin/index.html',
+  },
   integrations: [solidJs(), tailwind()],
 });
