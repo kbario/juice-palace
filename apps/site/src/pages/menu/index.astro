@@ -1,7 +1,7 @@
 ---
-import client from '../../tina/__generated__/client';
-import MenuComponent from '../components/screens/menu';
-import Layout from '../layouts/Layout.astro';
+import { client } from '../../../tina';
+import MenuComponent from '../../components/screens/menu';
+import Layout from '../../layouts/Layout.astro';
 
 const asdf = await client.queries.menuConnection();
 ---

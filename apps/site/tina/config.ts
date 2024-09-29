@@ -223,6 +223,55 @@ export default defineConfig({
           },
         ],
       },
+      {
+        label: 'Opening Hours',
+        name: 'openingHours',
+        path: 'content/openingHours',
+        ui: {
+          // global: true,
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => {
+            return '/contact';
+          },
+        },
+        fields: [
+          {
+            type: 'object',
+            label: 'Locations',
+            name: 'locations',
+            list: true,
+            fields: [
+              {
+                type: 'string',
+                name: 'displayName',
+                label: 'Name',
+                required: true,
+              },
+              {
+                type: 'string',
+                name: 'desc',
+                label: 'Description',
+              },
+              {
+                type: 'string',
+                label: 'Map String',
+                description: 'put the string from google maps here',
+                name: 'mapLocation',
+                required: true,
+              },
+              {
+                label: 'Days and Times',
+                name: 'times',
+                type: 'string',
+                required: true,
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 });
