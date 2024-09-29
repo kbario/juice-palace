@@ -1,8 +1,7 @@
 import { createMemo, For, Show } from 'solid-js';
-import client from '../../../tina/__generated__/client';
-import type { OpeningHoursConnectionQuery } from '../../../tina/__generated__/types';
-import { createTina, tinaField } from '../../../tina/tina-helpers';
-import { formatDaysAndHours } from '../../helpers/days';
+import client from '../../../../tina/__generated__/client';
+import type { OpeningHoursConnectionQuery } from '../../../../tina/__generated__/types';
+import { createTina, tinaField } from '../../../../tina/tina-helpers';
 
 export default (props: {
   locations: Awaited<ReturnType<typeof client.queries.openingHoursConnection>>;
@@ -19,7 +18,6 @@ export default (props: {
     <>
       <For each={data()}>
         {(location) => {
-          const a = createMemo(() => formatDaysAndHours(location?.times));
           return (
             <>
               <h2 data-tina-field={tinaField(location, 'displayName')}>
@@ -30,16 +28,11 @@ export default (props: {
                   {location?.desc}
                 </p>
               </Show>
-              <ul>
-                <For each={a()}>
-                  {(y) => (
-                    <li
-                      data-tina-field={tinaField(location?.times?.[0], 'day')}>
-                      {y}
-                    </li>
-                  )}
-                </For>
-              </ul>
+              <Show when={location?.times}>
+                <p data-tina-field={tinaField(location, 'times')}>
+                  {location?.times}
+                </p>
+              </Show>
               <iframe
                 src={location?.mapLocation}
                 width='600'

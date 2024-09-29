@@ -22,11 +22,11 @@ function commaAndStringReducer(
     idx === 0
       ? idv
       : // designed to be recursive
-        // if run through already, then there will be two & which is wrong
-        // if last and has run through already (ie) contains &, then put comma
-        arr.length - 1 === idx && !arr[arr.length - 1].includes('&')
-        ? `${acc} & ${idv}`
-        : `${acc}, ${idv}`;
+      // if run through already, then there will be two & which is wrong
+      // if last and has run through already (ie) contains &, then put comma
+      arr.length - 1 === idx && !arr[arr.length - 1].includes('&')
+      ? `${acc} & ${idv}`
+      : `${acc}, ${idv}`;
   return acc;
 }
 
@@ -107,16 +107,13 @@ function handleLargeDayAndHourInputs(config: ArrayConfig[]): string[] {
 }
 
 export function formatDaysAndHours(config: OpeningHoursLocationsTimes[]) {
-  const groupedDays: ReducedConfig = config.reduce(
-    (acc, config, idx) => {
-      if (!config.day || !config.closeTime || !config.openTime) return;
-      const time = `${config.openTime} - ${config.closeTime}`;
-      if (!Array.isArray(acc[time])) acc[time] = [config.day];
-      else acc[time].push(config.day);
-      return acc;
-    },
-    {} as { [k: string]: DayOfWeek[] }
-  );
+  const groupedDays: ReducedConfig = config.reduce((acc, config) => {
+    if (!config.day || !config.closeTime || !config.openTime) return;
+    const time = `${config.openTime} - ${config.closeTime}`;
+    if (!Array.isArray(acc[time])) acc[time] = [config.day as DayOfWeek];
+    else acc[time].push(config.day as DayOfWeek);
+    return acc;
+  }, {} as { [k: string]: DayOfWeek[] });
   const asdf = Object.entries(groupedDays);
   return handleLargeDayAndHourInputs(asdf);
 }

@@ -1,8 +1,7 @@
 ---
 import client from '../../tina/__generated__/client';
-import { Button } from '../components/shared/button/button';
-import Layout from '../layouts/Layout.astro';
 import MenuComponent from '../components/screens/menu';
+import Layout from '../layouts/Layout.astro';
 
 const asdf = await client.queries.menuConnection();
 ---
@@ -13,5 +12,3 @@ const asdf = await client.queries.menuConnection();
     menu={asdf}
   />
 </Layout>
-
-<style></style>

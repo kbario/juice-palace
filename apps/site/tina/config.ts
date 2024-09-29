@@ -6,9 +6,7 @@ import type {
   MenuSectionSubgroups,
   MenuSectionSubgroupsItems,
   MenuSectionSubgroupsItemsSizing,
-  OpeningHours,
   OpeningHoursLocations,
-  OpeningHoursLocationsTimes,
 } from './__generated__/types';
 
 export const Dietary = {
@@ -109,27 +107,19 @@ const asdf = (item: MenuSectionItems | MenuSectionSubgroupsItems) => {
             i: number,
             arr: (MenuSectionItemsSizing | MenuSectionSubgroupsItemsSizing)[]
           ) =>
-            (acc += `${x.size}: $${x.price}${i !== arr.length - 1 ? ', ' : ''}`),
+            (acc += `${x.size}: $${x.price}${
+              i !== arr.length - 1 ? ', ' : ''
+            }`),
           ''
         )
     : item.price || item.price === '0'
-      ? `$${item.price}`
-      : null;
+    ? `$${item.price}`
+    : null;
   if (price) label = `${label} - ${price}`;
   if (item.desc) label = `${label} - ${item.desc}`;
   // Field values are accessed by item?.<Field name>
   return { label };
 };
-
-const locationDayTimeDisplay = (item: OpeningHoursLocationsTimes) => {
-  if (!item.day) return {};
-  let label = item.day;
-  const time = [item.openTime, item.closeTime].filter(Boolean).join('-');
-  if (time) label = `${label}: ${time}`;
-  // Field values are accessed by item?.<Field name>
-  return { label };
-};
-
 const groupObject: TinaField<false>[] = [
   {
     type: 'string',
@@ -230,89 +220,6 @@ export default defineConfig({
               itemProps: asdf,
             },
             fields: [...groupObject, subgroupObject],
-          },
-        ],
-      },
-      {
-        label: 'Opening Hours',
-        name: 'openingHours',
-        path: 'content/openingHours',
-        ui: {
-          // global: true,
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-          router: () => {
-            return '/contact';
-          },
-        },
-        fields: [
-          {
-            type: 'object',
-            label: 'Locations',
-            name: 'locations',
-            list: true,
-            ui: {
-              itemProps: (loc: OpeningHoursLocations) => ({
-                label: loc.displayName,
-              }),
-            },
-            fields: [
-              {
-                type: 'string',
-                name: 'displayName',
-                label: 'Name',
-                required: true,
-              },
-              {
-                type: 'string',
-                name: 'desc',
-                label: 'Description',
-              },
-              {
-                type: 'string',
-                label: 'Map String',
-                description: 'put the string from google maps here',
-                name: 'mapLocation',
-                required: true,
-              },
-              {
-                label: 'Days and Times',
-                name: 'times',
-                type: 'object',
-                list: true,
-                ui: {
-                  itemProps: locationDayTimeDisplay,
-                },
-                fields: [
-                  {
-                    label: 'Open Time',
-                    name: 'openTime',
-                    type: 'string',
-                  },
-                  {
-                    label: 'Close Time',
-                    name: 'closeTime',
-                    type: 'string',
-                  },
-                  {
-                    label: 'Day',
-                    name: 'day',
-                    type: 'string',
-                    options: [
-                      'Monday',
-                      'Tuesday',
-                      'Wednesday',
-                      'Thursday',
-                      'Friday',
-                      'Saturday',
-                      'Sunday',
-                    ],
-                  },
-                ],
-              },
-            ],
           },
         ],
       },

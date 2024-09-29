@@ -6,6 +6,7 @@
     "node": ">=22",
     "pnpm": ">=8"
   },
+  "packageManager": "pnpm@8.15.6",
   "scripts": {
     "build.site": "cd apps/site && pnpm build",
     "cs.add": "pnpm changeset"
