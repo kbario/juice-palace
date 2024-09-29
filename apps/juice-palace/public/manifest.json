@@ -1,9 +1,0 @@
-{
-  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Juice Palace",
-  "short_name": "JP",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#F1F5F9",
-  "description": "See Juice Palace's meny and get in touch for event bookings."
-}
