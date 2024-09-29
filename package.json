@@ -3,14 +3,12 @@
   "version": "0.0.1",
   "description": "",
   "engines": {
-    "node": ">=20",
+    "node": ">=22",
     "pnpm": ">=8"
   },
   "scripts": {
     "build.site": "cd apps/site && pnpm build",
-    "cs.add": "pnpm changeset",
-    "lint": "turbo run lint",
-    "test": "turbo run test"
+    "cs.add": "pnpm changeset"
   },
   "repository": {
     "type": "git",
@@ -23,7 +21,6 @@
   },
   "homepage": "https://github.com/kbario/juice-palace#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.27.1",
-    "turbo": "1.2.5"
+    "@changesets/cli": "^2.27.1"
   }
 }

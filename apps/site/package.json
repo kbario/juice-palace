@@ -2,6 +2,10 @@
   "name": "site",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=8"
+  },
   "scripts": {
     "dev.q": "wrangler types && astro dev --port 7562",
     "dev": "tinacms dev -c \"npm run dev\"",
