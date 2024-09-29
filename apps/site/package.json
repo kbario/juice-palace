@@ -6,6 +6,7 @@
     "node": ">=22",
     "pnpm": ">=8"
   },
+  "packageManager": "pnpm@8.9.0",
   "scripts": {
     "dev.q": "wrangler types && astro dev --port 7562",
     "dev": "tinacms dev -c \"npm run dev\"",
