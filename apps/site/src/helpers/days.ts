@@ -1,13 +1,13 @@
-import type { OpeningHoursLocationsTimes } from '../../tina/__generated__/types';
+import type { OpeningHoursLocationsTimes } from "../../tina/__generated__/types";
 
 export const dayOfWeek = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday',
-  'Sunday',
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
 ] as const;
 export type DayOfWeek = (typeof dayOfWeek)[number];
 
@@ -15,18 +15,18 @@ function commaAndStringReducer(
   acc: string,
   idv: string,
   idx: number,
-  arr: string[]
+  arr: string[],
 ) {
   acc =
     // if first, return, there should be nothing before hand
     idx === 0
       ? idv
       : // designed to be recursive
-      // if run through already, then there will be two & which is wrong
-      // if last and has run through already (ie) contains &, then put comma
-      arr.length - 1 === idx && !arr[arr.length - 1].includes('&')
-      ? `${acc} & ${idv}`
-      : `${acc}, ${idv}`;
+        // if run through already, then there will be two & which is wrong
+        // if last and has run through already (ie) contains &, then put comma
+        arr.length - 1 === idx && !arr[arr.length - 1].includes("&")
+        ? `${acc} & ${idv}`
+        : `${acc}, ${idv}`;
   return acc;
 }
 
@@ -52,11 +52,11 @@ function groupConsecutiveDays(acc: DayOfWeek[][], idv: DayOfWeek, idx: number) {
 function joinConsecutiveDaysWithAppropriateStringMap(
   x: ReturnType<typeof groupConsecutiveDays>[0],
   i: number,
-  a: ReturnType<typeof groupConsecutiveDays>
+  a: ReturnType<typeof groupConsecutiveDays>,
 ) {
   // if not the first and is the last and the length is less than 3
   if (i !== 0 && a.length - 1 === i && x.length < 3)
-    return x.reduce(commaAndStringReducer, '');
+    return x.reduce(commaAndStringReducer, "");
   switch (x.length) {
     case 1:
       // if the day is by itself then just return it
@@ -73,9 +73,9 @@ function joinConsecutiveDaysWithAppropriateStringMap(
 function handleLargeDayInputs(days: DayOfWeek[]) {
   const daysGroupedIfOneApart = days.reduce(groupConsecutiveDays, []);
   const groupsJoinedByAppropriateString = daysGroupedIfOneApart.map(
-    joinConsecutiveDaysWithAppropriateStringMap
+    joinConsecutiveDaysWithAppropriateStringMap,
   );
-  return groupsJoinedByAppropriateString.reduce(commaAndStringReducer, '');
+  return groupsJoinedByAppropriateString.reduce(commaAndStringReducer, "");
 }
 
 export function formatDays(days: DayOfWeek[]) {
@@ -84,7 +84,7 @@ export function formatDays(days: DayOfWeek[]) {
       return days[0];
     case 2:
     case 3:
-      return days.reduce(commaAndStringReducer, '');
+      return days.reduce(commaAndStringReducer, "");
     default:
       return handleLargeDayInputs(days);
   }
@@ -100,20 +100,23 @@ function handleLargeDayAndHourInputs(config: ArrayConfig[]): string[] {
     acc.push(
       ...reducedDays
         .map(joinConsecutiveDaysWithAppropriateStringMap)
-        .map((display) => `${display}: ${time}`)
+        .map((display) => `${display}: ${time}`),
     );
     return acc;
   }, [] as string[]);
 }
 
 export function formatDaysAndHours(config: OpeningHoursLocationsTimes[]) {
-  const groupedDays: ReducedConfig = config.reduce((acc, config) => {
-    if (!config.day || !config.closeTime || !config.openTime) return;
-    const time = `${config.openTime} - ${config.closeTime}`;
-    if (!Array.isArray(acc[time])) acc[time] = [config.day as DayOfWeek];
-    else acc[time].push(config.day as DayOfWeek);
-    return acc;
-  }, {} as { [k: string]: DayOfWeek[] });
+  const groupedDays: ReducedConfig = config.reduce(
+    (acc, config) => {
+      if (!config.day || !config.closeTime || !config.openTime) return;
+      const time = `${config.openTime} - ${config.closeTime}`;
+      if (!Array.isArray(acc[time])) acc[time] = [config.day as DayOfWeek];
+      else acc[time].push(config.day as DayOfWeek);
+      return acc;
+    },
+    {} as { [k: string]: DayOfWeek[] },
+  );
   const asdf = Object.entries(groupedDays);
   return handleLargeDayAndHourInputs(asdf);
 }

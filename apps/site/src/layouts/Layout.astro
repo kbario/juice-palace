@@ -5,8 +5,8 @@ import { JuicePalaceLogo } from '../components/shared/logo/logo';
 import '@fontsource-variable/noto-sans';
 import { MobileNav } from '../components/shared/mobile-nav/mobile-nav';
 import '../styles/global.css';
-import { HiOutlineBars3 } from 'solid-icons/hi'
-import {BottomSheet} from '../components/shared/bottom-nav/bottom-nav'
+import { HiOutlineBars3 } from 'solid-icons/hi';
+import { BottomSheet } from '../components/shared/bottom-nav/bottom-nav';
 
 const headerLinks: {
   display: string;
@@ -60,21 +60,28 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <div class="sticky top-0 px-6 py-4">
-      <header class="flex w-full justify-between items-center bg-surface-container px-4 py-2 rounded-lg">
-<Link href="/"><JuicePalaceLogo /></Link>
-        <BottomSheet title="Menu" client:idle>
-          <ul class="flex flex-col gap-2 w-full">
+    <div class='sticky top-0 px-6 py-4'>
+      <header
+        class='flex w-full justify-between items-center bg-surface-container px-4 py-2 rounded-lg'>
+        <Link href='/'><JuicePalaceLogo /></Link>
+        <BottomSheet
+          title='Menu'
+          client:idle>
+          <ul class='flex flex-col gap-2 w-full'>
             {
               headerLinks.map((link) => (
-                <li class="w-full rounded-lg flex">
-                  <Link class='grow' href={link.link}>{link.display}</Link>
+                <li class='w-full rounded-lg flex'>
+                  <Link
+                    class='grow'
+                    href={link.link}>
+                    {link.display}
+                  </Link>
                 </li>
               ))
             }
           </ul>
         </BottomSheet>
-        <nav class="hidden sm:block">
+        <nav class='hidden sm:block'>
           <ul class='flex gap-1'>
             {
               headerLinks.slice(1).map((link) => (

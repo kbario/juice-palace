@@ -28,10 +28,7 @@ export function EventHireInitialToJP({
   enquirerMessage,
 }: EventHireInitialToJp) {
   return render(
-    <Html
-      lang="en"
-      dir="ltr"
-    >
+    <Html lang="en" dir="ltr">
       <Head />
       <Preview>
         {enquirerFullName.split(" ")[0] || enquirerFullName} has filled out the
@@ -72,7 +69,7 @@ export function EventHireInitialToJP({
           </Container>
         </Body>
       </Tailwind>
-    </Html>
+    </Html>,
   );
 }
 

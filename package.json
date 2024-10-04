@@ -9,7 +9,9 @@
   "packageManager": "pnpm@8.15.6",
   "scripts": {
     "build.site": "cd apps/site && pnpm build",
-    "cs.add": "pnpm changeset"
+    "cs.add": "pnpm changeset",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/kbario/juice-palace#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.27.1"
+    "@changesets/cli": "^2.27.1",
+    "prettier": "^3.3.3"
   }
 }

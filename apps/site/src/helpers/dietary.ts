@@ -1,16 +1,16 @@
-import { Dietary } from '../constants/dietary';
+import { Dietary } from "../constants/dietary";
 
 export const mapDietaryToSymbol = (dietary: Dietary): string => {
   switch (dietary) {
     case Dietary.Vegan:
-      return 'Ⓥ';
+      return "Ⓥ";
     case Dietary.Vegetarian:
-      return 'V';
+      return "V";
     case Dietary.GlutenFree:
-      return 'GF';
+      return "GF";
     case Dietary.ContainsNuts:
-      return 'CN';
+      return "CN";
     default:
-      return '';
+      return "";
   }
 };

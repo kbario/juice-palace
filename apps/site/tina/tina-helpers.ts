@@ -4,8 +4,8 @@ import {
   createSignal,
   onCleanup,
   type Accessor,
-} from 'solid-js';
-import { isServer } from 'solid-js/web';
+} from "solid-js";
+import { isServer } from "solid-js/web";
 
 export type CreateTinaProps<T> = {
   query: string;
@@ -25,7 +25,7 @@ const hashFromQuery = (input: string) => {
 };
 
 function createTina<T extends object>(
-  props: CreateTinaProps<T>
+  props: CreateTinaProps<T>,
 ): {
   data: Accessor<T>;
   isClient: Accessor<boolean>;
@@ -35,15 +35,15 @@ function createTina<T extends object>(
       JSON.stringify({
         query: props?.query,
         variables: props?.variables,
-      })
-    )
+      }),
+    ),
   );
   const [data, setData] = createSignal<T>(props.data);
   const [isClient, setIsClient] = createSignal(false);
   const [quickEditEnabled, setQuickEditEnabled] = createSignal(false);
   const [isInTinaIframe, setIsInTinaIframe] = createSignal(false);
   createEffect(() => {
-    setIsInTinaIframe(parent.location.toString().includes('admin'));
+    setIsInTinaIframe(parent.location.toString().includes("admin"));
     setIsClient(!isServer);
     setData(() => props.data);
   });
@@ -53,7 +53,7 @@ function createTina<T extends object>(
         if (!e.target) return;
         const attributeNames = (e.target as Element).getAttributeNames();
         const tinaAttribute = attributeNames.find((name: string) =>
-          name.startsWith('data-tina-field')
+          name.startsWith("data-tina-field"),
         );
         let fieldName;
         if (tinaAttribute) {
@@ -62,12 +62,12 @@ function createTina<T extends object>(
           fieldName = (e.target as Element).getAttribute(tinaAttribute);
         } else {
           const ancestor = (e.target as Element).closest(
-            '[data-tina-field], [data-tina-field-overlay]'
+            "[data-tina-field], [data-tina-field-overlay]",
           );
           if (ancestor) {
             const attributeNames2 = ancestor.getAttributeNames();
             const tinaAttribute2 = attributeNames2.find((name: string) =>
-              name.startsWith('data-tina-field')
+              name.startsWith("data-tina-field"),
             );
             if (tinaAttribute2) {
               e.preventDefault();
@@ -79,14 +79,14 @@ function createTina<T extends object>(
         if (fieldName) {
           if (isInTinaIframe()) {
             parent.postMessage(
-              { type: 'field:selected', fieldName },
-              window.location.origin
+              { type: "field:selected", fieldName },
+              window.location.origin,
             );
           }
         }
       };
-      const style = document.createElement('style');
-      style.type = 'text/css';
+      const style = document.createElement("style");
+      style.type = "text/css";
       style.textContent = `
       [data-tina-field] {
         outline: 2px dashed rgba(34,150,254,0.5);
@@ -119,11 +119,11 @@ function createTina<T extends object>(
       }
     `;
       document.head.appendChild(style);
-      document.body.classList.add('__tina-quick-editing-enabled');
-      document.addEventListener('click', mouseDownHandler, true);
+      document.body.classList.add("__tina-quick-editing-enabled");
+      document.addEventListener("click", mouseDownHandler, true);
       onCleanup(() => {
-        document.removeEventListener('click', mouseDownHandler, true);
-        document.body.classList.remove('__tina-quick-editing-enabled');
+        document.removeEventListener("click", mouseDownHandler, true);
+        document.body.classList.remove("__tina-quick-editing-enabled");
         style.remove();
       });
     }
@@ -131,32 +131,32 @@ function createTina<T extends object>(
   createEffect(() => {
     if (isClient()) {
       parent.postMessage(
-        { type: 'open', ...props, id: id() },
-        window.location.origin
+        { type: "open", ...props, id: id() },
+        window.location.origin,
       );
-      window.addEventListener('message', (event) => {
-        if (event.data.type === 'quickEditEnabled') {
+      window.addEventListener("message", (event) => {
+        if (event.data.type === "quickEditEnabled") {
           setQuickEditEnabled(event.data.value);
         }
-        if (event.data.id === id() && event.data.type === 'updateData') {
+        if (event.data.id === id() && event.data.type === "updateData") {
           setData(event.data.data);
           setIsInTinaIframe(true);
-          const anyTinaField = document.querySelector('[data-tina-field]');
+          const anyTinaField = document.querySelector("[data-tina-field]");
           if (anyTinaField) {
             parent.postMessage(
-              { type: 'quick-edit', value: true },
-              window.location.origin
+              { type: "quick-edit", value: true },
+              window.location.origin,
             );
           } else {
             parent.postMessage(
-              { type: 'quick-edit', value: false },
-              window.location.origin
+              { type: "quick-edit", value: false },
+              window.location.origin,
             );
           }
         }
       });
       onCleanup(() => {
-        parent.postMessage({ type: 'close', id: id() }, window.location.origin);
+        parent.postMessage({ type: "close", id: id() }, window.location.origin);
       });
     }
   });
@@ -179,32 +179,32 @@ function tinaField<
     | null,
 >(
   object?: T,
-  property?: Exclude<keyof NonNullable<T>, '__typename' | '_sys'>,
-  index?: number
+  property?: Exclude<keyof NonNullable<T>, "__typename" | "_sys">,
+  index?: number,
 ): string {
   var _a, _b, _c;
   if (!object) {
-    return '';
+    return "";
   }
   if (object._content_source) {
     if (!property) {
       return [
         (_a = object._content_source) == null ? void 0 : _a.queryId,
-        object._content_source.path.join('.'),
-      ].join('---');
+        object._content_source.path.join("."),
+      ].join("---");
     }
-    if (typeof index === 'number') {
+    if (typeof index === "number") {
       return [
         (_b = object._content_source) == null ? void 0 : _b.queryId,
-        [...object._content_source.path, property, index].join('.'),
-      ].join('---');
+        [...object._content_source.path, property, index].join("."),
+      ].join("---");
     }
     return [
       (_c = object._content_source) == null ? void 0 : _c.queryId,
-      [...object._content_source.path, property].join('.'),
-    ].join('---');
+      [...object._content_source.path, property].join("."),
+    ].join("---");
   }
-  return '';
+  return "";
 }
 
 export { tinaField, createTina };

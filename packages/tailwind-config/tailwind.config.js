@@ -1,42 +1,42 @@
-import plugin from 'tailwindcss/plugin';
-import colours from 'tailwindcss/colors';
-import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from "tailwindcss/plugin";
+import colours from "tailwindcss/colors";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const HEADER_HEIGHT = 80;
 const SECONDARY_HEADER_HEIGHT = 64;
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
+      transparent: "transparent",
+      current: "currentColor",
       // grey: colours.slate,
       content: {
-        full: 'rgb(var(--content-full) / <alpha-value>);',
-        default: 'rgb(var(--content-default) / <alpha-value>);',
-        light: 'rgb(var(--content-light) / <alpha-value>);',
+        full: "rgb(var(--content-full) / <alpha-value>);",
+        default: "rgb(var(--content-default) / <alpha-value>);",
+        light: "rgb(var(--content-light) / <alpha-value>);",
       },
       primary: {
-        content: 'rgb(var(--primary-content) / <alpha-value>)',
-        default: 'rgb(var(--primary-default) / <alpha-value>)',
+        content: "rgb(var(--primary-content) / <alpha-value>)",
+        default: "rgb(var(--primary-default) / <alpha-value>)",
       },
       surface: {
-        container: 'rgb(var(--surface-container) / <alpha-value>)',
-        'container-low': 'rgb(var(--surface-container-low) / <alpha-value>)',
-        'container-high': 'rgb(var(--surface-container-high) / <alpha-value>)',
-        default: 'rgb(var(--surface-default) / <alpha-value>)',
+        container: "rgb(var(--surface-container) / <alpha-value>)",
+        "container-low": "rgb(var(--surface-container-low) / <alpha-value>)",
+        "container-high": "rgb(var(--surface-container-high) / <alpha-value>)",
+        default: "rgb(var(--surface-default) / <alpha-value>)",
       },
     },
     extend: {
       fontFamily: {
-        sans: ['Noto Sans Variable', ...defaultTheme.fontFamily.sans],
+        sans: ["Noto Sans Variable", ...defaultTheme.fontFamily.sans],
       },
       height: {
         header: `${HEADER_HEIGHT}px`,
-        'secondary-header': `${SECONDARY_HEADER_HEIGHT}px`,
-        'combined-header': `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
+        "secondary-header": `${SECONDARY_HEADER_HEIGHT}px`,
+        "combined-header": `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
         view: [
           `calc(100vh - ${HEADER_HEIGHT}px)`,
           `calc(100svh - ${HEADER_HEIGHT}px)`,
@@ -48,8 +48,8 @@ const config = {
       },
       minHeight: {
         header: `${HEADER_HEIGHT}px`,
-        'secondary-header': `${SECONDARY_HEADER_HEIGHT}px`,
-        'combined-header': `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
+        "secondary-header": `${SECONDARY_HEADER_HEIGHT}px`,
+        "combined-header": `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
         view: [
           `calc(100vh - ${HEADER_HEIGHT}px)`,
           `calc(100svh - ${HEADER_HEIGHT}px)`,
@@ -61,8 +61,8 @@ const config = {
       },
       spacing: {
         header: `${HEADER_HEIGHT}px`,
-        'secondary-header': `${SECONDARY_HEADER_HEIGHT}px`,
-        'combined-header': `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
+        "secondary-header": `${SECONDARY_HEADER_HEIGHT}px`,
+        "combined-header": `${HEADER_HEIGHT + SECONDARY_HEADER_HEIGHT}px`,
       },
     },
   },
