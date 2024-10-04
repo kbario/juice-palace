@@ -1,0 +1,66 @@
+:root {
+  --duration: 150ms;
+}
+.dialog__trigger {
+  transition: var(--duration) background-color;
+}
+.dialog__trigger:focus-visible {
+  outline: 2px solid hsl(200 98% 39%);
+  outline-offset: 2px;
+}
+.dialog__trigger:active {
+  background-color: hsl(201 90% 27%);
+}
+.dialog__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgb(0 0 0 / 0.2);
+  animation: overlayHide var(--duration) ease 100ms forwards;
+}
+.dialog__overlay[data-expanded] {
+  animation: overlayShow var(--duration) ease;
+}
+.dialog__content {
+  /* box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); */
+  animation: contentHide var(--duration) ease-in forwards;
+}
+.dialog__content[data-expanded] {
+  animation: contentShow var(--duration) ease-out;
+}
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes overlayHide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translateY(100%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes contentHide {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%) scale(0.96);
+  }
+}

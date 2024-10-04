@@ -7,4 +7,5 @@ export default {
     join(__dirname, 'src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'),
   ],
   ...asdf,
+  plugins: [require('@kobalte/tailwindcss')],
 };

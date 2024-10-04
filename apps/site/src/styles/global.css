@@ -1,5 +1,17 @@
+:root {
+  --content-full: 2 6 23;
+  --content-default: 30 41 59;
+  --content-light: 71 85 105;
+  --primary-content: 14 74 106;
+  --primary-default: 153 211 242;
+  --surface-container-low: 241 245 249;
+  --surface-container: 226 232 240;
+  --surface-container-high: 203 213 225;
+  --surface-default: 248 250 252;
+}
+
 h1 {
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 

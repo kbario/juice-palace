@@ -5,11 +5,17 @@ import { JuicePalaceLogo } from '../components/shared/logo/logo';
 import '@fontsource-variable/noto-sans';
 import { MobileNav } from '../components/shared/mobile-nav/mobile-nav';
 import '../styles/global.css';
+import { HiOutlineBars3 } from 'solid-icons/hi'
+import {BottomSheet} from '../components/shared/bottom-nav/bottom-nav'
 
 const headerLinks: {
   display: string;
   link: string;
 }[] = [
+  {
+    display: 'Home',
+    link: '/',
+  },
   {
     display: 'Menu',
     link: '/menu',
@@ -30,7 +36,7 @@ const { title } = Astro.props;
 <!doctype html>
 <html
   lang='en'
-  class='bg-grey-100 scroll-smooth'>
+  class='bg-surface-default scroll-smooth'>
   <head>
     <meta charset='UTF-8' />
     <meta
@@ -53,25 +59,37 @@ const { title } = Astro.props;
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body class=''>
-    <header
-      class='sticky top-0 flex justify-between h-header items-center p-8 bg-grey-200'>
-      <Link href='/'><JuicePalaceLogo /></Link>
-      <nav>
-        <ul class='flex gap-1'>
-          {
-            headerLinks.map((link) => (
-              <li>
-                <Link href={link.link}>{link.display}</Link>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </header>
+  <body>
+    <div class="sticky top-0 px-6 py-4">
+      <header class="flex w-full justify-between items-center bg-surface-container px-4 py-2 rounded-lg">
+<Link href="/"><JuicePalaceLogo /></Link>
+        <BottomSheet title="Menu" client:idle>
+          <ul class="flex flex-col gap-2 w-full">
+            {
+              headerLinks.map((link) => (
+                <li class="w-full rounded-lg flex">
+                  <Link class='grow' href={link.link}>{link.display}</Link>
+                </li>
+              ))
+            }
+          </ul>
+        </BottomSheet>
+        <nav class="hidden sm:block">
+          <ul class='flex gap-1'>
+            {
+              headerLinks.slice(1).map((link) => (
+                <li>
+                  <Link href={link.link}>{link.display}</Link>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </header>
+    </div>
     <main class='bg-grey-100 h-view flex overflow-hidden flex-col'>
       <slot />
-      <MobileNav />
+      <!-- <MobileNav /> -->
     </main>
   </body>
 </html>
