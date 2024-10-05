@@ -5,29 +5,10 @@ import {
   type ParentComponent,
 } from "solid-js";
 import cn from "../../../lib/cn";
-import { cva, type VariantProps } from "cva";
-
-const link = cva({
-  base: "rounded",
-  variants: {
-    appearance: {
-      primary:
-        "bg-primary-default text-primary-content hover:bg-primary-default/90",
-      default:
-        "bg-surface-default text-content-default hover:bg-surface-default/90",
-    },
-    size: {
-      default: "px-2 py-1.5 text-base",
-    },
-  },
-  defaultVariants: {
-    appearance: "default",
-    size: "default",
-  },
-});
+import { buttonCva, type buttonCvaOptions } from "../button/button.cva";
 
 export const Link: ParentComponent<
-  ComponentProps<typeof Root> & VariantProps<typeof link>
+  ComponentProps<typeof Root> & buttonCvaOptions
 > = (props) => {
   const [local, cva, rest] = splitProps(
     props,
@@ -35,7 +16,7 @@ export const Link: ParentComponent<
     ["appearance", "size"],
   );
   return (
-    <Root class={cn(link(cva), local.class)} {...rest}>
+    <Root class={cn(buttonCva(cva), local.class)} {...rest}>
       {local.children}
     </Root>
   );

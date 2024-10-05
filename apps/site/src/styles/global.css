@@ -22,3 +22,17 @@ h2 {
 p {
   font-size: 1rem;
 }
+
+.em {
+  background-image: linear-gradient(
+    45deg,
+    color-mix(
+      in srgb,
+      rgb(var(--primary-content)),
+      rgb(var(--primary-default)) 60%
+    ),
+    rgb(var(--primary-content))
+  );
+  background-clip: text;
+  color: transparent;
+}

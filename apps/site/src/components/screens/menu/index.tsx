@@ -1,3 +1,5 @@
+import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
+import { debounce } from "@solid-primitives/scheduled";
 import {
   createEffect,
   createMemo,
@@ -7,6 +9,7 @@ import {
   type Accessor,
   type ParentComponent,
 } from "solid-js";
+import { createStore, type SetStoreFunction, type Store } from "solid-js/store";
 import client from "../../../../tina/__generated__/client";
 import type {
   MenuConnectionQuery,
@@ -18,10 +21,6 @@ import type {
 import { createTina, tinaField } from "../../../../tina/tina-helpers";
 import { Dietary } from "../../../constants/dietary";
 import { mapDietaryToSymbol } from "../../../helpers/dietary";
-import { createStore, type SetStoreFunction, type Store } from "solid-js/store";
-import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
-import { isServer } from "solid-js/web";
-import { debounce, throttle } from "@solid-primitives/scheduled";
 
 type Group = Pick<
   MenuSection,
@@ -141,14 +140,12 @@ const Nav = (props: {
   return (
     <aside
       id="menu-course-nav"
-      class="sticky flex md:justify-start justify-center left-0 h-secondary-header top-0 z-[15] w-full shrink-0 overflow-x-hidden bg-grey-100 shadow-md md:h-view md:w-56 md:shadow-none"
-      aria-label="menu course links container"
-    >
+      class="sticky flex md:justify-start justify-center left-0 h-secondary-header top-0 z-[15] w-full shrink-0 overflow-x-hidden bg-surface-default shadow-md md:h-view md:w-56 md:shadow-none"
+      aria-label="menu course links container">
       <nav
         ref={(ref) => (nav = ref)}
         class="flex h-full items-center md:justify-start md:gap-1 gap-2 md:overflow-hidden overflow-x-scroll p-4 md:items-start md:flex-col"
-        aria-label="menu courses links"
-      >
+        aria-label="menu courses links">
         <For each={props.courses()}>
           {(course: string, idx) => {
             let aTag: HTMLAnchorElement;
@@ -169,8 +166,7 @@ const Nav = (props: {
                     isActiveLink(course),
                   "text-zinc-600 border-surface-elevate-xl":
                     !isActiveLink(course),
-                }}
-              >
+                }}>
                 {course}
               </a>
             );
@@ -201,8 +197,7 @@ const Section = (props: {
   return (
     <section
       ref={(ref) => (sectionRef = ref)}
-      class="flex flex-col gap-2 p-4 rounded shadow-md text-grey-900"
-    >
+      class="flex flex-col gap-2 p-4 rounded shadow-md text-grey-900">
       <Show when={props.group}>{<MenuHeading data={props.group!} />}</Show>
       <Show when={!!props.group?.items?.length}>
         <ul class="flex flex-wrap gap-1">
@@ -226,8 +221,7 @@ const Section = (props: {
                       }}
                     />
                   </li>
-                }
-              >
+                }>
                 <li class="w-full">
                   <Item data={item!} />
                 </li>
@@ -241,8 +235,7 @@ const Section = (props: {
         when={
           props.group?.__typename === "MenuSection" &&
           !!props.group?.subgroups?.length
-        }
-      >
+        }>
         <ul class="flex flex-col gap-1">
           <For each={(props.group as Group)?.subgroups}>
             {(subgroup) => (
@@ -266,16 +259,14 @@ const MenuHeading = (group: { data: Partial<Group | Subgroup> }) => {
         classList={{
           "text-3xl": group.data.__typename === "MenuSection",
           "text-2xl": group.data.__typename === "MenuSectionSubgroups",
-        }}
-      >
+        }}>
         <Show
           when={group.data.__typename === "MenuSection"}
           fallback={
             <h3 data-tina-field={tinaField(group.data, "title")}>
               {group.data.title}
             </h3>
-          }
-        >
+          }>
           <h2 data-tina-field={tinaField(group.data, "title")}>
             {group.data.title}
           </h2>
@@ -289,8 +280,7 @@ const MenuHeading = (group: { data: Partial<Group | Subgroup> }) => {
       <Show when={group.data.desc}>
         <span
           class="text-grey-600"
-          data-tina-field={tinaField(group.data, "desc")}
-        >
+          data-tina-field={tinaField(group.data, "desc")}>
           {group.data.desc}
         </span>
       </Show>
@@ -309,8 +299,7 @@ const Item = (item: {
           <Show when={!!item.data.dietary?.length}>
             <ul
               class="flex items-center gap-1"
-              data-tina-field={tinaField(item.data, "dietary")}
-            >
+              data-tina-field={tinaField(item.data, "dietary")}>
               <For each={item.data.dietary}>
                 {(d) => d && <li>{mapDietaryToSymbol(d as Dietary)}</li>}
               </For>
@@ -320,8 +309,7 @@ const Item = (item: {
         <Show when={item.data.desc}>
           <span
             class="text-grey-600"
-            data-tina-field={tinaField(item.data, "desc")}
-          >
+            data-tina-field={tinaField(item.data, "desc")}>
             {item.data.desc}
           </span>
         </Show>

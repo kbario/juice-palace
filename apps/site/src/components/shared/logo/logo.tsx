@@ -11,16 +11,14 @@ export const JuicePalaceLogo = ({
     viewBox="0 0 117 58"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-  >
+    xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="117" height="58" fill="url(#pattern0_46_142)" />
     <defs>
       <pattern
         id="pattern0_46_142"
         patternContentUnits="objectBoundingBox"
         width="1"
-        height="1"
-      >
+        height="1">
         <use
           xlink:href="#image0_46_142"
           transform="matrix(0.00172727 0 0 0.00348432 -0.00522648 0)"

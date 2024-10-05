@@ -8,9 +8,9 @@
   },
   "packageManager": "pnpm@8.9.0",
   "scripts": {
-    "dev.q": "wrangler types && astro dev --port 3798",
+    "dev.q": "astro dev --port 3798",
     "dev": "tinacms dev -c \"npm run dev.q\"",
-    "build.q": "wrangler types && astro build",
+    "build.q": "astro build",
     "build": "tinacms build && npm run build.q",
     "check": "npm run fmt.check",
     "check.fix": "npm run fmt",

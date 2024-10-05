@@ -131,7 +131,13 @@ function createTina<T extends object>(
   createEffect(() => {
     if (isClient()) {
       parent.postMessage(
-        { type: "open", ...props, id: id() },
+        {
+          type: "open",
+          query: JSON.parse(JSON.stringify(props.query)),
+          variables: JSON.parse(JSON.stringify(props.variables)),
+          data: JSON.parse(JSON.stringify(props.data)),
+          id: id(),
+        },
         window.location.origin,
       );
       window.addEventListener("message", (event) => {

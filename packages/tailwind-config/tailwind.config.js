@@ -1,8 +1,13 @@
-import plugin from "tailwindcss/plugin";
-import colours from "tailwindcss/colors";
+import {
+  black,
+  current,
+  inherit,
+  transparent,
+  white,
+} from "tailwindcss/colors";
 import defaultTheme from "tailwindcss/defaultTheme";
 
-const HEADER_HEIGHT = 80;
+const HEADER_HEIGHT = 90;
 const SECONDARY_HEADER_HEIGHT = 64;
 
 /** @type {import('tailwindcss').Config} */
@@ -10,24 +15,29 @@ const config = {
   darkMode: "class",
   theme: {
     colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      // grey: colours.slate,
-      content: {
-        full: "rgb(var(--content-full) / <alpha-value>);",
-        default: "rgb(var(--content-default) / <alpha-value>);",
-        light: "rgb(var(--content-light) / <alpha-value>);",
-      },
-      primary: {
-        content: "rgb(var(--primary-content) / <alpha-value>)",
-        default: "rgb(var(--primary-default) / <alpha-value>)",
-      },
-      surface: {
-        container: "rgb(var(--surface-container) / <alpha-value>)",
-        "container-low": "rgb(var(--surface-container-low) / <alpha-value>)",
-        "container-high": "rgb(var(--surface-container-high) / <alpha-value>)",
-        default: "rgb(var(--surface-default) / <alpha-value>)",
-      },
+      transparent,
+      current,
+      inherit,
+      black,
+      white,
+      ...[
+        ["content", ["full", "default", "light"]],
+        ["primary", ["content", "default"]],
+        [
+          "surface",
+          ["default", "container", "container-low", "container-high"],
+        ],
+      ].reduce((acc, [semantics, variants]) => {
+        acc[semantics] = variants.reduce((acc, x) => {
+          acc[x] = `rgb(var(--${semantics}-${x}) / <alpha-value>)`;
+          acc[`${x}-light`] =
+            `color-mix(in srgb, rgb(var(--${semantics}-${x}) / <alpha-value>), white 10%)`;
+          acc[`${x}-dark`] =
+            `color-mix(in srgb, rgb(var(--${semantics}-${x}) / <alpha-value>), black 10%)`;
+          return acc;
+        }, {});
+        return acc;
+      }, {}),
     },
     extend: {
       fontFamily: {
