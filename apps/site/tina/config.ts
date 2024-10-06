@@ -6,7 +6,6 @@ import type {
   MenuSectionSubgroups,
   MenuSectionSubgroupsItems,
   MenuSectionSubgroupsItemsSizing,
-  OpeningHoursLocations,
 } from "./__generated__/types";
 
 export const Dietary = {
@@ -189,13 +188,54 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "../src/images",
       publicFolder: "public",
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
+      {
+        label: "Home Page",
+        name: "home",
+        path: "content/home",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+            createNestedFolder: false,
+          },
+          router: () => {
+            return "/";
+          },
+        },
+        fields: [
+          {
+            type: "object",
+            label: "Hero",
+            name: "heroSection",
+            fields: [
+              {
+                name: "buttons",
+                type: "object",
+                list: true,
+                fields: [
+                  {
+                    name: "label",
+                    type: "string",
+                  },
+                ],
+              },
+              {
+                type: "rich-text",
+                label: "Text",
+                name: "text",
+                isBody: true,
+              },
+            ],
+          },
+        ],
+      },
       {
         label: "Menu",
         name: "menu",
