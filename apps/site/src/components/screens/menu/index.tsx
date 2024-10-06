@@ -62,7 +62,7 @@ export default (props: {
       <PageContainer>
         <Nav courseTracker={courseTracker} courses={courses} />
         <ContentContainer>
-          <h1 class="">Menu</h1>
+          <h2 class="">Menu</h2>
           <For each={data()}>
             {(group) => (
               <Section setCourseTracker={setCourseTracker} group={group} />
@@ -127,16 +127,15 @@ const Nav = (props: {
 
   let nav: HTMLElement;
   const trigger = debounce((index: number) => {
-    const offset = Array(index + 1)
-      .fill(true)
-      .reduce((acc, i) => {
-        if (i === index) acc += nav.children.item(i)!.clientWidth / 2;
-        else acc += nav.children.item(i)!.clientWidth + 8;
-        return acc;
-      }, 16);
-    const center = window.innerWidth / 2;
-    nav.scrollTo({ left: offset - center, behavior: "smooth" });
-  }, 400);
+    try {
+      const el = nav.children.item(index) as HTMLDivElement;
+      const asdf = el?.offsetLeft + el?.clientWidth / 2;
+      const center = window.innerWidth / 2;
+      nav.scrollTo({ left: asdf - center, behavior: "smooth" });
+    } catch (e) {
+      console.warn(e);
+    }
+  }, 500);
   return (
     <aside
       id="menu-course-nav"
@@ -148,7 +147,6 @@ const Nav = (props: {
         aria-label="menu courses links">
         <For each={props.courses()}>
           {(course: string, idx) => {
-            let aTag: HTMLAnchorElement;
             createEffect(() => {
               if (isActiveLink(course)) {
                 trigger(idx());
@@ -156,15 +154,14 @@ const Nav = (props: {
             });
             return (
               <a
-                ref={(ref) => (aTag = ref)}
                 id={`${course}-tag`}
                 href={`#${makeId(course)}`}
                 title={course}
-                class="zxcv whitespace-nowrap border-b-2 md:text-left text-center md:border-l-2 md:border-b-0 px-2 py-0.5 md:py-1"
+                class="whitespace-nowrap border-b-2 md:text-left text-center md:border-l-2 md:border-b-0 px-2 py-0.5 md:py-1"
                 classList={{
-                  "text-surface-content border-surface-content font-medium":
+                  "text-content-default border-content-default font-medium":
                     isActiveLink(course),
-                  "text-zinc-600 border-surface-elevate-xl":
+                  "text-content-light-light border-content-light-light border-surface-elevate-xl":
                     !isActiveLink(course),
                 }}>
                 {course}
@@ -187,7 +184,7 @@ const Section = (props: {
 }) => {
   let sectionRef: HTMLElement;
   const isVisible = createVisibilityObserver({
-    rootMargin: "-144px 0px 0px 0px",
+    rootMargin: "-154px 0px 0px 0px",
   })(() => sectionRef);
   createEffect(() => {
     if (props.group?.title && props.setCourseTracker) {
@@ -197,7 +194,12 @@ const Section = (props: {
   return (
     <section
       ref={(ref) => (sectionRef = ref)}
-      class="flex flex-col gap-2 p-4 rounded shadow-md text-grey-900">
+      class="flex flex-col text-content-default"
+      classList={{
+        "p-4 rounded shadow-md  gap-2 ":
+          props.group?.__typename === "MenuSection",
+        "gap-1 ": props.group?.__typename === "MenuSectionSubgroups",
+      }}>
       <Show when={props.group}>{<MenuHeading data={props.group!} />}</Show>
       <Show when={!!props.group?.items?.length}>
         <ul class="flex flex-wrap gap-1">
@@ -230,13 +232,12 @@ const Section = (props: {
           </For>
         </ul>
       </Show>
-
       <Show
         when={
           props.group?.__typename === "MenuSection" &&
           !!props.group?.subgroups?.length
         }>
-        <ul class="flex flex-col gap-1">
+        <ul class="flex flex-col gap-2">
           <For each={(props.group as Group)?.subgroups}>
             {(subgroup) => (
               <li>
@@ -252,34 +253,33 @@ const Section = (props: {
 
 const MenuHeading = (group: { data: Partial<Group | Subgroup> }) => {
   return (
-    <div class="flex flex-col gap-2">
-      <div
-        id={makeId(group.data.title)}
-        class="flex justify-between"
-        classList={{
-          "text-3xl": group.data.__typename === "MenuSection",
-          "text-2xl": group.data.__typename === "MenuSectionSubgroups",
-        }}>
+    <div class="flex flex-col gap-1">
+      <div id={makeId(group.data.title)} class="flex justify-between">
         <Show
           when={group.data.__typename === "MenuSection"}
           fallback={
-            <h3 data-tina-field={tinaField(group.data, "title")}>
+            <h4 data-tina-field={tinaField(group.data, "title")}>
               {group.data.title}
-            </h3>
+            </h4>
           }>
-          <h2 data-tina-field={tinaField(group.data, "title")}>
+          <h3 data-tina-field={tinaField(group.data, "title")}>
             {group.data.title}
-          </h2>
+          </h3>
         </Show>
         <Show when={group.data.price}>
-          <span data-tina-field={tinaField(group.data, "price")}>
+          <span
+            classList={{
+              h3: group.data.__typename === "MenuSection",
+              h4: group.data.__typename === "MenuSectionSubgroups",
+            }}
+            data-tina-field={tinaField(group.data, "price")}>
             ${group.data.price}
           </span>
         </Show>
       </div>
       <Show when={group.data.desc}>
         <span
-          class="text-grey-600"
+          class="text-content-light-light"
           data-tina-field={tinaField(group.data, "desc")}>
           {group.data.desc}
         </span>
@@ -308,7 +308,7 @@ const Item = (item: {
         </div>
         <Show when={item.data.desc}>
           <span
-            class="text-grey-600"
+            class="text-content-light-light"
             data-tina-field={tinaField(item.data, "desc")}>
             {item.data.desc}
           </span>
@@ -324,13 +324,6 @@ const Item = (item: {
           <For each={item.data.sizing}>
             {(size) => (
               <li>
-                {/* <Show when={size?.size}>
-                  <span
-                    class='text-grey-500'
-                    data-tina-field={tinaField(size, 'size')}>
-                    {size!.size.charAt(0).toUpperCase()}
-                  </span>
-                </Show> */}
                 <Show when={size?.price}>
                   <span data-tina-field={tinaField(size, "price")}>
                     ${size!.price.toFixed(1)}
