@@ -3,7 +3,9 @@ import { client } from '../../../tina';
 import ContactComponent from '../../components/screens/contact';
 import Layout from '../../layouts/Layout.astro';
 
-const asdf = await client.queries.openingHoursConnection();
+const asdf = await client.queries.openingHours({
+  relativePath: 'openingHours.md',
+});
 ---
 
 <Layout title='Contact - Juice Palace'>

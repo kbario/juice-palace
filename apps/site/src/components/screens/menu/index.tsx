@@ -12,7 +12,7 @@ import {
 import { createStore, type SetStoreFunction, type Store } from "solid-js/store";
 import client from "../../../../tina/__generated__/client";
 import type {
-  MenuConnectionQuery,
+  MenuQuery,
   MenuSection,
   MenuSectionItems,
   MenuSectionSubgroups,
@@ -38,12 +38,10 @@ const makeId = (id: string | undefined): string | undefined =>
   "-section";
 
 export default (props: {
-  menu: Awaited<ReturnType<typeof client.queries.menuConnection>>;
+  menu: Awaited<ReturnType<typeof client.queries.menu>>;
 }) => {
-  const initialData = createTina<MenuConnectionQuery>(props.menu).data;
-  const data = createMemo(() =>
-    initialData()?.menuConnection?.edges?.flatMap((x) => x?.node?.section),
-  );
+  const initialData = createTina<MenuQuery>(props.menu).data;
+  const data = createMemo(() => initialData().menu.section);
   const courses: Accessor<string[]> = createMemo(() =>
     (data()?.flatMap((x) => x?.title) || []).filter((x): x is string => !!x),
   );

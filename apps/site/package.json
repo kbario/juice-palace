@@ -18,12 +18,13 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint",
     "lint.fix": "eslint --fix",
-    "preview": "wrangler pages dev ./dist",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
     "@astrojs/cloudflare": "^11.1.0",
+    "@astrojs/deno": "^5.0.1",
+    "@astrojs/sitemap": "^3.2.0",
     "@astrojs/solid-js": "^4.4.2",
     "@astrojs/tailwind": "^5.1.1",
     "@fontsource-variable/noto-sans": "^5.1.0",

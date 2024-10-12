@@ -1,19 +1,13 @@
 import { createMemo, For, Show } from "solid-js";
 import client from "../../../../tina/__generated__/client";
-import type { OpeningHoursConnectionQuery } from "../../../../tina/__generated__/types";
+import type { OpeningHoursQuery } from "../../../../tina/__generated__/types";
 import { createTina, tinaField } from "../../../../tina/tina-helpers";
 
 export default (props: {
-  locations: Awaited<ReturnType<typeof client.queries.openingHoursConnection>>;
+  locations: Awaited<ReturnType<typeof client.queries.openingHours>>;
 }) => {
-  const initialData = createTina<OpeningHoursConnectionQuery>(
-    props.locations,
-  ).data;
-  const data = createMemo(() =>
-    initialData()?.openingHoursConnection?.edges?.flatMap(
-      (x) => x?.node?.locations,
-    ),
-  );
+  const initialData = createTina<OpeningHoursQuery>(props.locations).data;
+  const data = createMemo(() => initialData().openingHours.locations);
   return (
     <>
       <For each={data()}>

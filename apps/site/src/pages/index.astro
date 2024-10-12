@@ -1,12 +1,17 @@
 ---
+import client from '../../tina/__generated__/client';
+import Hero from '../components/screens/home/hero';
 import Layout from '../layouts/Layout.astro';
 
-// const asdf = await client.queries.homeConnection();
+const asdf = await client.queries.home({ relativePath: 'hero.md' });
 ---
 
 <Layout title='Juice Palace'>
   <div class='p-8'>
-    <!-- <Hero data={asdf} /> -->
+    <Hero
+      client:idle
+      data={asdf}
+    />
     <footer class='h-20 flex items-center justify-center'>
       © 2024 Juice Palace
     </footer>

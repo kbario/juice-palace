@@ -203,7 +203,7 @@ export default defineConfig({
           allowedActions: {
             create: false,
             delete: false,
-            createNestedFolder: false,
+            // createNestedFolder: false,
           },
           router: () => {
             return "/";
@@ -211,28 +211,28 @@ export default defineConfig({
         },
         fields: [
           {
+            name: "buttons",
             type: "object",
-            label: "Hero",
-            name: "heroSection",
+            list: true,
             fields: [
               {
-                name: "buttons",
-                type: "object",
-                list: true,
-                fields: [
-                  {
-                    name: "label",
-                    type: "string",
-                  },
-                ],
+                name: "label",
+                label: "Label",
+                type: "string",
               },
               {
-                type: "rich-text",
-                label: "Text",
-                name: "text",
-                isBody: true,
+                name: "link",
+                label: "Link",
+                type: "string",
               },
             ],
+          },
+          {
+            type: "rich-text",
+            label: "Text",
+            name: "text",
+            isBody: true,
+            description: "Make the text bold to have a cool effect",
           },
         ],
       },
