@@ -1,7 +1,11 @@
-<!-- ---
+---
 import { client } from '../../../tina';
-import ContactComponent from '../../components/screens/contact';
+import LocationsComponent from '../../components/screens/contact';
+import { ContactHook } from '../../components/screens/contact/contact-hook';
+import { Footer } from '../../components/shared/footer/footer';
+import { ScrollContainer } from '../../components/shared/scroll-container/scroll-container';
 import Layout from '../../layouts/Layout.astro';
+import { buttonCva } from '../../components/shared/button/button.cva';
 
 const asdf = await client.queries.openingHours({
   relativePath: 'openingHours.md',
@@ -9,13 +13,21 @@ const asdf = await client.queries.openingHours({
 ---
 
 <Layout title='Contact - Juice Palace'>
-  <div class='p-8'>
-    <section class='h-viewi flex gap-4 flex-col'>
-      <h1>Locations</h1>
-      <ContactComponent
+  <ScrollContainer>
+    <section class='flex w-full gap-4 flex-col'>
+      <h2>Contact</h2>
+      <ContactHook
         client:idle
-        locations={asdf}
+        data={asdf}
       />
     </section>
-  </div>
-</Layout> -->
+    <section class='flex w-full gap-4 flex-col'>
+      <h2>Locations</h2>
+      <LocationsComponent
+        client:idle
+        data={asdf}
+      />
+    </section>
+  </ScrollContainer>
+  <Footer />
+</Layout>

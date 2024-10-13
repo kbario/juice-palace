@@ -11,6 +11,7 @@ export default defineConfig({
   site: "https://juice-palace.com",
   redirects: {
     "/admin": "/admin/index.html",
+    "/a": "/",
   },
   build: {
     inlineStylesheets: "always",
