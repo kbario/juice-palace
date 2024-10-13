@@ -1,46 +1,20 @@
 ---
-import { Link } from '../components/shared/link/link';
+import client from '../../tina/__generated__/client';
+import Hero from '../components/screens/home/hero';
+import { Footer } from '../components/shared/footer/footer';
+import { ScrollContainer } from '../components/shared/scroll-container/scroll-container';
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import mainImage from '../images/juice-palace-back-on-beac.jpg';
+
+const asdf = await client.queries.home({ relativePath: 'hero.md' });
 ---
 
 <Layout title='Juice Palace'>
-  <div class='p-8'>
-    <section
-      class='h-viewi lg:flex-row-reverse lg:gap-8 flex gap-4 flex-col items-center justify-center'>
-      <Image
-        src={mainImage}
-        width={300}
-        alt=''
-      />
-      <div
-        class='flex gap-4 flex-col items-center justify-center lg:max-w-[500px]'>
-        <h1 class='text-center'>
-          The <span class='em'>Perfect</span> Cup of Coffee.
-        </h1>
-        <p class='text-center'>
-          A coffee van based on Freo’s South Beach dog beach
-        </p>
-        <div class='flex gap-2'>
-          <Link
-            class=''
-            appearance='primary'
-            href='/menu'
-            >See our menu</Link
-          >
-          <Link
-            class=''
-            href='/contact'
-            >Find Us
-          </Link>
-        </div>
-      </div>
-    </section>
-    <footer class='h-20 flex items-center justify-center'>
-      © 2024 Juice Palace
-    </footer>
-  </div>
+  <ScrollContainer>
+    <Hero
+      client:idle
+      data={asdf}
+    />
+  </ScrollContainer>
 </Layout>
 
 <style></style>

@@ -12,7 +12,7 @@ import {
 import { createStore, type SetStoreFunction, type Store } from "solid-js/store";
 import client from "../../../../tina/__generated__/client";
 import type {
-  MenuConnectionQuery,
+  MenuQuery,
   MenuSection,
   MenuSectionItems,
   MenuSectionSubgroups,
@@ -21,6 +21,7 @@ import type {
 import { createTina, tinaField } from "../../../../tina/tina-helpers";
 import { Dietary } from "../../../constants/dietary";
 import { mapDietaryToSymbol } from "../../../helpers/dietary";
+import { Footer } from "../../shared/footer/footer";
 
 type Group = Pick<
   MenuSection,
@@ -38,12 +39,10 @@ const makeId = (id: string | undefined): string | undefined =>
   "-section";
 
 export default (props: {
-  menu: Awaited<ReturnType<typeof client.queries.menuConnection>>;
+  menu: Awaited<ReturnType<typeof client.queries.menu>>;
 }) => {
-  const initialData = createTina<MenuConnectionQuery>(props.menu).data;
-  const data = createMemo(() =>
-    initialData()?.menuConnection?.edges?.flatMap((x) => x?.node?.section),
-  );
+  const initialData = createTina<MenuQuery>(props.menu).data;
+  const data = createMemo(() => initialData().menu.section);
   const courses: Accessor<string[]> = createMemo(() =>
     (data()?.flatMap((x) => x?.title) || []).filter((x): x is string => !!x),
   );
@@ -62,16 +61,14 @@ export default (props: {
       <PageContainer>
         <Nav courseTracker={courseTracker} courses={courses} />
         <ContentContainer>
-          <h2 class="">Menu</h2>
+          <h2>Menu</h2>
           <For each={data()}>
             {(group) => (
               <Section setCourseTracker={setCourseTracker} group={group} />
             )}
           </For>
           <DietaryLegend dietary={dietary} />
-          <footer class="h-20 flex items-center justify-center">
-            © 2024 Juice Palace
-          </footer>
+          <Footer />
         </ContentContainer>
       </PageContainer>
     </>
@@ -80,7 +77,7 @@ export default (props: {
 
 const PageContainer: ParentComponent = (props) => {
   return (
-    <div class="flex flex-col md:scroll-p-6 scroll-p-header md:flex-row w-full h-full overflow-y-auto scroll-smooth">
+    <div class="flex flex-col md:scroll-p-6 md:px-6 scroll-p-header md:flex-row w-full h-full overflow-y-auto scroll-smooth">
       {props.children}
     </div>
   );
@@ -89,7 +86,7 @@ const PageContainer: ParentComponent = (props) => {
 const ContentContainer: ParentComponent = (props) => {
   return (
     <div class="flex justify-center grow scroll-smooth">
-      <div class="relative max-w-screen-sm flex  flex-col gap-4 p-8">
+      <div class="relative max-w-screen-sm flex flex-col gap-4 p-6 md:p-0">
         {props.children}
       </div>
     </div>

@@ -203,7 +203,7 @@ export default defineConfig({
           allowedActions: {
             create: false,
             delete: false,
-            createNestedFolder: false,
+            // createNestedFolder: false,
           },
           router: () => {
             return "/";
@@ -211,28 +211,40 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "rich-text",
+            label: "Text",
+            name: "text",
+            isBody: true,
+            description: "Make the text **bold** to have a cool effect",
+          },
+          {
+            name: "buttons",
             type: "object",
-            label: "Hero",
-            name: "heroSection",
+            list: true,
+            description:
+              "Will only show 2. First is primary colour, second is grey",
+            ui: {
+              itemProps: (btn) => {
+                return { label: `${btn.label} - ${btn.link}` };
+              },
+            },
             fields: [
               {
-                name: "buttons",
-                type: "object",
-                list: true,
-                fields: [
-                  {
-                    name: "label",
-                    type: "string",
-                  },
-                ],
+                name: "label",
+                label: "Label",
+                type: "string",
               },
               {
-                type: "rich-text",
-                label: "Text",
-                name: "text",
-                isBody: true,
+                name: "link",
+                label: "Link",
+                type: "string",
               },
             ],
+          },
+          {
+            type: "image",
+            label: "Hero Image",
+            name: "image",
           },
         ],
       },
@@ -264,7 +276,7 @@ export default defineConfig({
         ],
       },
       {
-        label: "Opening Hours",
+        label: "Contact",
         name: "openingHours",
         path: "content/openingHours",
         ui: {
@@ -279,10 +291,35 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "string",
+            name: "contactEmail",
+            label: "Contact Email",
+            required: true,
+            description:
+              "the email address that you want the customer enquiry to be sent",
+          },
+          {
+            type: "string",
+            name: "contactDesc",
+            label: "Contact Hook",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "contactBtnText",
+            label: "Contact Button Text",
+            required: true,
+          },
+          {
             type: "object",
             label: "Locations",
             name: "locations",
             list: true,
+            ui: {
+              itemProps: (loc) => {
+                return { label: loc.displayName };
+              },
+            },
             fields: [
               {
                 type: "string",
@@ -307,6 +344,13 @@ export default defineConfig({
                 name: "times",
                 type: "string",
                 required: true,
+              },
+              {
+                label: "Temporarily Hide",
+                type: "boolean",
+                name: "hide",
+                description:
+                  "Useful if you want to keep the config but hide it for a period of time",
               },
             ],
           },

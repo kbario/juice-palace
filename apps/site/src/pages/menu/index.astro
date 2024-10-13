@@ -1,9 +1,10 @@
 ---
 import { client } from '../../../tina';
 import MenuComponent from '../../components/screens/menu';
+import { Footer } from '../../components/shared/footer/footer';
 import Layout from '../../layouts/Layout.astro';
 
-const asdf = await client.queries.menuConnection();
+const asdf = await client.queries.menu({ relativePath: 'menu.md' });
 ---
 
 <Layout title='Menu - Juice Palace'>
