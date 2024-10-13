@@ -6,6 +6,8 @@ import { defineConfig } from "astro/config";
 import { VitePWA } from "vite-plugin-pwa";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://juice-palace.com",
@@ -18,11 +20,12 @@ export default defineConfig({
   },
   integrations: [
     sitemap(),
-    solidJs({ devtools: true }),
+    solidJs({ devtools: true, exclude: "src/components/r3f/**" }),
     tailwind(),
     VitePWA({
       registerType: "autoUpdate",
     }),
+    react(),
   ],
   output: "hybrid",
   adapter: cloudflare(),
