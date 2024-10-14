@@ -145,7 +145,7 @@ section:
       - title: Plain Croissant
         price: '5.50'
       - title: Chocolate Croissant
-        price: '6'
+        price: '6.50'
       - title: Cookies
         desc: ANZAC or Vanilla Moment
         price: '4'
