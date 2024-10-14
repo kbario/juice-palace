@@ -43,7 +43,7 @@ section:
           - title: Hot Choc
             sizing:
               - size: Small
-                price: 5.3
+                price: 5.4
               - size: Large
                 price: 5.8
           - title: Babycino
