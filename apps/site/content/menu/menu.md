@@ -114,7 +114,7 @@ section:
       - title: Berry Ripe
         desc: 'Raspberries, banana, cacao nibs, coconut milk & dates'
       - title: Mango Passion
-        desc: 'mango, passionfruit & cold pressed apple juice'
+        desc: 'Mango, passionfruit & cold pressed apple juice'
       - title: Green
         desc: 'Mango, spinach, mint, honey & coconut water'
       - title: Espresso
