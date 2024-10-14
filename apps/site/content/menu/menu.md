@@ -31,7 +31,7 @@ section:
           - title: Long Mac
             sizing:
               - size: Small
-                price: 5.4
+                price: 5.5
               - size: Large
                 price: 5.9
           - title: Mocha
