@@ -108,7 +108,7 @@ section:
     price: '11'
     items:
       - title: Classic Banana
-        desc: 'Banana, yogurt, honey, vanilla, milk & cinnamon'
+        desc: 'Banana, yoghurt, honey, vanilla & milk'
       - title: Mr. Peanut
         desc: 'Roasted peanuts, banana, dates, vanilla & almond milk'
       - title: Berry Ripe
@@ -155,7 +155,7 @@ section:
   - title: Toasties
     desc: >-
       All of our toasted sandwiches are vegetarian and served on Abhi's
-      sourdough bread
+      continental loaf
     price: '12'
     items:
       - title: Breakfast
