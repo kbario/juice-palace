@@ -17,7 +17,7 @@ section:
           - title: Long Black
             sizing:
               - size: Small
-                price: 4.4
+                price: 4.5
               - size: Large
                 price: 4.9
           - title: 'Flat White, Cappuccino'
