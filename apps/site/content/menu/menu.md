@@ -86,7 +86,7 @@ section:
       - title: OJ
         desc: Orange
       - title: Apple
-        desc: Apple
+        desc: Apples
       - title: Tropical
         desc: 'Watermelon, orange & fresh mint'
       - title: Green
