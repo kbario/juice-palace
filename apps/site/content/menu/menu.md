@@ -92,7 +92,7 @@ section:
       - title: Green
         desc: 'Apple, celery, cucumber, cos lettuce, kale, parsley & lemon'
       - title: Beetroot Baby
-        desc: 'Apple, carrot, beetroot, lemon, cinnamon & myrtle'
+        desc: 'Apple, carrot, beetroot, lemon & cinnamon myrtle'
       - title: Makuru
         desc: 'Orange, apple, watermelon, lemon myrtle & lime'
   - title: Smoothie Bowls
@@ -100,7 +100,7 @@ section:
     price: '15'
     items:
       - title: Green
-        desc: 'Mango, dates, avocado, spinach, spirulina banana & almond milk'
+        desc: 'Mango, dates, avocado, spinach, spirulina, banana & almond milk'
       - title: Peanut
         desc: 'Peanut butter, banana, dates, vanilla & almond milk'
       - title: Berry
