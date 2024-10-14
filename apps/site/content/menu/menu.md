@@ -136,11 +136,6 @@ section:
         dietary:
           - Vegetarian
           - Gluten Free
-      - title: Peanut Butter Slice
-        price: '5.5'
-        dietary:
-          - Vegan
-          - Gluten Free
       - title: Protein Ball
         desc: 'Nuts, dates, coconut & cacao'
         price: '4.5'
@@ -148,7 +143,7 @@ section:
           - Vegan
           - Gluten Free
       - title: Plain Croissant
-        price: '5'
+        price: '5.50'
       - title: Chocolate Croissant
         price: '6'
       - title: Cookies
