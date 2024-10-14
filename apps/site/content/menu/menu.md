@@ -45,7 +45,7 @@ section:
               - size: Small
                 price: 5.4
               - size: Large
-                price: 5.8
+                price: 5.9
           - title: Babycino
             price: '2'
           - title: Iced Coffees
