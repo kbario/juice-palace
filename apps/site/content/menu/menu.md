@@ -13,7 +13,7 @@ section:
               - size: Small
                 price: 4.3
               - size: Large
-                price: 4.4
+                price: 4.8
           - title: Long Black
             sizing:
               - size: Small
