@@ -121,6 +121,9 @@ section:
         desc: 'Espresso shot, cashew nuts, cacao, banana & coconut milk'
   - title: Snacks
     items:
+      - title: Cinnamon Scroll
+        desc: ''
+        price: '6.50'
       - title: Banana Bread
         price: '7'
         dietary: []
