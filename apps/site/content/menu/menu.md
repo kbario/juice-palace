@@ -20,10 +20,10 @@ section:
                 price: 4.5
               - size: Large
                 price: 5
-          - title: 'Flat White, Cappuccino'
+          - title: Flat White/ Cappuccino/ Latte
             sizing:
               - size: Small
-                price: 5.4
+                price: 5
               - size: Large
                 price: 4.9
           - title: Short Mac / Piccolo
