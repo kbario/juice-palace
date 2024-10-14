@@ -11,7 +11,7 @@ section:
           - title: Espresso
             sizing:
               - size: Small
-                price: 3.9
+                price: 4.3
               - size: Large
                 price: 4.4
           - title: Long Black
