@@ -88,7 +88,7 @@ section:
       - title: Apple
         desc: Apple
       - title: Tropical
-        desc: 'Watermelon, lime & fresh mint'
+        desc: 'Watermelon, orange & fresh mint'
       - title: Green
         desc: 'Apple, celery, cucumber, cos lettuce, kale, parsley & lemon'
       - title: Beetroot Baby
