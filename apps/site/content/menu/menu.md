@@ -96,6 +96,7 @@ section:
       - title: Makuru
         desc: 'Orange, apple, watermelon, lemon myrtle & lime'
   - title: Smoothie Bowls
+    desc: 'Topped with raw muesli, chia seeds, banana and blueberries'
     price: '15'
     items:
       - title: Green
