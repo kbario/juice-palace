@@ -122,7 +122,7 @@ section:
   - title: Snacks
     items:
       - title: Banana Bread
-        price: '6.5'
+        price: '7'
         dietary: []
       - title: Sweet Muffins
         desc: Apple & Cinnamon or Raspberry & White Choc
