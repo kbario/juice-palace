@@ -18,8 +18,8 @@ section:
             sizing:
               - size: Small
                 price: 4.5
-              - size: Small
-                price: 5
+              - size: Large
+                price: 5.5
           - title: 'Flat White, Cappuccino'
             sizing:
               - size: Small
