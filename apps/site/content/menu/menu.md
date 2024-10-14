@@ -39,7 +39,7 @@ section:
               - size: Small
                 price: 5.5
               - size: Large
-                price: 5.9
+                price: 6
           - title: Hot Choc
             sizing:
               - size: Small
