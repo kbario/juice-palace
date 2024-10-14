@@ -167,7 +167,7 @@ section:
         dietary:
           - Vegetarian
       - title: Vegan
-        desc: 'Smoky Pumpkin, Avocado, Hummus & Rocket'
+        desc: 'Smokey Pumpkin, Avocado, Hummus & Rocket'
         dietary:
           - Vegan
 ---
