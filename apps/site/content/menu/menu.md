@@ -84,7 +84,7 @@ section:
     price: '9.50'
     items:
       - title: OJ
-        desc: Orange
+        desc: Oranges
       - title: Apple
         desc: Apples
       - title: Tropical
