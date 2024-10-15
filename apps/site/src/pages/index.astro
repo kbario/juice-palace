@@ -11,11 +11,11 @@ const asdf = await client.queries.home({ relativePath: 'hero.md' });
 
 <Layout title='Juice Palace'>
   <ScrollContainer>
-    <CoffeeCup client:only='react' />
     <Hero
       client:idle
-      data={asdf}
-    />
+      data={asdf}>
+      <CoffeeCup client:only='react' />
+    </Hero>
   </ScrollContainer>
 </Layout>
 

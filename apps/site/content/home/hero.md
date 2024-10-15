@@ -4,7 +4,7 @@ buttons:
     link: /menu
   - label: Find us
     link: /contact
-image: /juice-palace-back-on-beac.jpg
+image: /images/juice-palace-back-on-beac.jpg
 ---
 
 # The **Perfect** Cup of Coffee

@@ -45,7 +45,7 @@ function createTina<T extends object>(
   createEffect(() => {
     setIsInTinaIframe(parent.location.toString().includes("admin"));
     setIsClient(!isServer);
-    setData(() => props.data);
+    // setData(() => props.data);
   });
   createEffect(() => {
     if (quickEditEnabled()) {

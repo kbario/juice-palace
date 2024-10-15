@@ -1,25 +1,20 @@
 /** @jsxImportSource react */
 import React, { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Html, useGLTF, useTexture } from "@react-three/drei";
-
-// import { texturesOptions } from "lib/texturesOptions";
-// import { useIsMobile } from "hooks/useIsMobile";
+import { Html, useGLTF, useHelper, useTexture } from "@react-three/drei";
+import { useControls } from "leva";
+import { DirectionalLightHelper, SpotLightHelper } from "three";
 
 function Caneca(props) {
   const ref = useRef();
 
-  // const isMobile = true; //useIsMobile();
-
   const { nodes, materials } = useGLTF("/model/caneca.glb");
-
-  // const [textureActive, setTextureActive] = useState(0);
 
   const roughnessTexture = useTexture(`/textures/roughness.png`, (texture) => {
     texture.flipY = false;
   });
 
-  const texture = useTexture(`/textures/${"white.png"}`, (texture) => {
+  const texture = useTexture(`/textures/${"Cup.jpg"}`, (texture) => {
     texture.flipY = false;
   });
 
@@ -32,32 +27,17 @@ function Caneca(props) {
   });
 
   return (
-    <group {...props} dispose={null}>
-      <mesh
-        geometry={nodes["Mug"].geometry}
-        material={materials["Material"]}
-        material-map={texture}
-        material-roughness={1}
-        material-roughnessMap={roughnessTexture}
-        ref={ref}>
-        {/* <Html position={isMobile ? [0, 8.5, 0] : [-8, 0, 0]} transform occlude>
-          <ul className={styles.mugSelector}>
-            {texturesOptions.map((texture, index) => (
-              <li
-                className={`${styles.mugOption} ${index === textureActive && styles.mugOptionActive}`}
-                key={index}
-                onClick={() => setTextureActive(index)}>
-                <img
-                  src={`/assets/icons/${texture.icon}`}
-                  alt={texture.name}
-                  title={texture.name}
-                />
-              </li>
-            ))}
-          </ul>
-        </Html> */}
-      </mesh>
-    </group>
+    <>
+      <group {...props} dispose={null}>
+        <mesh
+          geometry={nodes["Mug"].geometry}
+          material={materials["Material"]}
+          material-map={texture}
+          material-roughness={5}
+          material-roughnessMap={roughnessTexture}
+          ref={ref}></mesh>
+      </group>
+    </>
   );
 }
 
