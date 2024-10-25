@@ -1,10 +1,9 @@
 ---
 import client from '../../tina/__generated__/client';
+import CoffeeCup from '../components/r3f/coffee-cup';
 import Hero from '../components/screens/home/hero';
-import { Footer } from '../components/shared/footer/footer';
 import { ScrollContainer } from '../components/shared/scroll-container/scroll-container';
 import Layout from '../layouts/Layout.astro';
-import CoffeeCup from '../components/r3f/coffee-cup';
 
 const asdf = await client.queries.home({ relativePath: 'hero.md' });
 ---

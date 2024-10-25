@@ -1,24 +1,41 @@
-import { type Component } from "solid-js";
+import { For, type Component } from "solid-js";
 import type { LinkConfig } from "../../../types/links";
 import { BottomSheet } from "../bottom-nav/bottom-nav";
 import { Link } from "../link/link";
-import { JuicePalaceLogo } from "../logo/logo";
 
-type HeaderProps = {
-  links: LinkConfig[];
-};
+const links: LinkConfig[] = [
+  {
+    display: "Home",
+    link: "/",
+    emoji: "🏠",
+  },
+  {
+    display: "Menu",
+    link: "/menu",
+    emoji: "☕",
+  },
+  {
+    display: "Contact",
+    link: "/contact",
+    emoji: "📞",
+  },
+];
 
-export const Header: Component<HeaderProps> = (props) => {
+export const Header: Component = () => {
   return (
     <div class="sticky top-0 px-6 pt-4">
       <header class="flex w-full justify-between items-center bg-surface-container px-4 py-2 rounded-lg">
-        <Link appearance="ghost" size="hug" href="/" aria-label="home">
-          <JuicePalaceLogo />
+        <Link
+          appearance="ghost"
+          // size="hug"
+          href="/"
+          aria-label="home">
+          Home
         </Link>
         <BottomSheet class="sm:hidden" title="Menu">
           <ul class="flex gap-2 w-full">
-            {props.links.map((link) => {
-              return (
+            <For each={links}>
+              {(link) => (
                 <li class="w-full rounded-lg flex">
                   <Link class="grow" href={link.link}>
                     <span class="flex gap-1 flex-col items-center justify-center">
@@ -27,17 +44,19 @@ export const Header: Component<HeaderProps> = (props) => {
                     </span>
                   </Link>
                 </li>
-              );
-            })}
+              )}
+            </For>
           </ul>
         </BottomSheet>
         <nav class="hidden sm:block">
           <ul class="flex gap-1">
-            {props.links.slice(1).map((link) => (
-              <li>
-                <Link href={link.link}>{link.display}</Link>
-              </li>
-            ))}
+            <For each={links.slice(1)}>
+              {(link) => (
+                <li>
+                  <Link href={link.link}>{link.display}</Link>
+                </li>
+              )}
+            </For>
           </ul>
         </nav>
       </header>
