@@ -8,6 +8,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 import react from "@astrojs/react";
 
+import svelte from "@astrojs/svelte";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://juice-palace.com",
@@ -26,6 +28,7 @@ export default defineConfig({
       registerType: "autoUpdate",
     }),
     react(),
+    svelte({ include: "src/components/threlte/**" }),
   ],
   output: "hybrid",
   adapter: cloudflare(),
