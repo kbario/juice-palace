@@ -1,5 +1,7 @@
 ---
 // import '@fontsource-variable/noto-sans';
+import { pwaInfo } from 'virtual:pwa-info';
+import { pwaAssetsHead } from 'virtual:pwa-assets/head';
 import { ViewTransitions } from 'astro:transitions';
 import { Header } from '../components/shared/header/header';
 import '../styles/global.css';
@@ -30,34 +32,18 @@ const { description, title } = Astro.props;
     <meta
       name='viewport'
       content='width=device-width,initial-scale=1'
-    /><link
-      rel='icon'
-      type='image/png'
-      href='/icons/favicon-48x48.png'
-      sizes='48x48'
     />
-    <link
-      rel='icon'
-      type='image/svg+xml'
-      href='/icons/favicon.svg'
-    />
-    <link
-      rel='shortcut icon'
-      href='/icons/favicon.ico'
-    />
-    <link
-      rel='apple-touch-icon'
-      sizes='180x180'
-      href='/icons/apple-touch-icon.png'
-    />
-    <meta
-      name='apple-mobile-web-app-title'
-      content='Juice Palace'
-    />
-    <link
-      rel='manifest'
-      href='/icons/site.webmanifest'
-    />
+    <script src='/src/pwa.ts'></script>
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
+    {
+      pwaAssetsHead.themeColor && (
+        <meta
+          name='theme-color'
+          content={pwaAssetsHead.themeColor.content}
+        />
+      )
+    }
+    {pwaAssetsHead.links.map((link) => <link {...link} />)}
     <ViewTransitions />
   </head>
   <body>
