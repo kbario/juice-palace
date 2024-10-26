@@ -24,16 +24,14 @@ export default defineConfig({
     sitemap(),
     solidJs({ devtools: true, exclude: "src/components/r3f/**" }),
     tailwind(),
-
     AstroPWA({
-      mode: "development",
       base: "/",
       scope: "/",
-      includeAssets: ["icons/favicon.svg"],
       registerType: "autoUpdate",
       manifest: {
         name: "Juice Palace",
         short_name: "J Palace",
+        background_color: "#9BD4F2",
         theme_color: "#f8fafc",
         icons: [
           {
@@ -55,6 +53,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        maximumFileSizeToCacheInBytes: 5000000,
         navigateFallback: "/",
         globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
       },

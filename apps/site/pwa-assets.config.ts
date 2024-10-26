@@ -6,7 +6,7 @@ import {
 
 export default defineConfig({
   headLinkOptions: {
-    basePath: "/icons/",
+    basePath: "/",
     preset: "2023",
   },
   preset: {
