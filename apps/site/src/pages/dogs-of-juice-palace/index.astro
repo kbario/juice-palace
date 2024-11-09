@@ -1,0 +1,21 @@
+---
+import client from '../../../tina/__generated__/client';
+import { ScrollContainer } from '../../components/shared/scroll-container/scroll-container';
+import Layout from '../../layouts/Layout.astro';
+import DogsComponent from '../../components/screens/dogs/index';
+
+const asdf = await client.queries.dogs({ relativePath: 'dogs.md' });
+---
+
+<Layout
+  title='Juice Palace'
+  description='a page dedicated to the good boys and girls of the south freo dog beach'>
+  <ScrollContainer>
+    <DogsComponent
+      client:idle
+      data={asdf}
+    />
+  </ScrollContainer>
+</Layout>
+
+<style></style>

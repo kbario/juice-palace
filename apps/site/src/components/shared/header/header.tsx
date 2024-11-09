@@ -20,7 +20,19 @@ const links: LinkConfig[] = [
     link: "/contact",
     emoji: "📞",
   },
-];
+  {
+    display: "Dogs",
+    link: "/dogs",
+    emoji: "🐶",
+  },
+  import.meta.env.DEV
+    ? {
+        display: "Admin",
+        link: "/admin",
+        emoji: "👤",
+      }
+    : undefined,
+].filter(Boolean);
 
 export const Header: Component = () => {
   return (

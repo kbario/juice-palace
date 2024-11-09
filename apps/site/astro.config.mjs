@@ -14,8 +14,9 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   site: "https://juice-palace.com",
   redirects: {
-    "/admin": "/admin/index.html",
     "/a": "/",
+    "/admin": "/admin/index.html",
+    "/dogs": "/dogs-of-juice-palace",
   },
   build: {
     inlineStylesheets: "always",
@@ -58,7 +59,7 @@ export default defineConfig({
         globPatterns: ["**/*.{css,js,html,svg,png,ico,txt,glb,jpg}"],
       },
       devOptions: {
-        enabled: true,
+        // enabled: true,
         navigateFallbackAllowlist: [/^\//],
       },
       experimental: {

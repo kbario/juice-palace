@@ -28,7 +28,7 @@ function createTina<T extends object>(
   props: CreateTinaProps<T>,
 ): {
   data: Accessor<T>;
-  isClient: Accessor<boolean>;
+  isEditing: Accessor<boolean>;
 } {
   const id = createMemo(() =>
     hashFromQuery(
@@ -42,6 +42,9 @@ function createTina<T extends object>(
   const [isClient, setIsClient] = createSignal(false);
   const [quickEditEnabled, setQuickEditEnabled] = createSignal(false);
   const [isInTinaIframe, setIsInTinaIframe] = createSignal(false);
+  const isEditing = createMemo(
+    () => isClient() && isInTinaIframe() && quickEditEnabled(),
+  );
   createEffect(() => {
     setIsInTinaIframe(parent.location.toString().includes("admin"));
     setIsClient(!isServer);
@@ -166,7 +169,7 @@ function createTina<T extends object>(
       });
     }
   });
-  return { data, isClient };
+  return { data, isEditing };
 }
 
 /**
