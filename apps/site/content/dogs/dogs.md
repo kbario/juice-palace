@@ -15,7 +15,7 @@ dogs:
   - name: Keelie
     birthday: 2022-09-10T16:00:00.000Z
     desc: Nervous; will lick your face off if you let her
-    hide: true
+    hide: false
     image: /images/dogs/keelie.jpg
   - name: Abby
     birthday: 2022-09-10T16:00:00.000Z
