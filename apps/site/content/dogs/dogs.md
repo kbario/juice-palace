@@ -1,6 +1,7 @@
 ---
 dogs:
   - name: Jorge and Storm
+    desc: Checking out the dog treats on the new menu!
     image: /images/Jorge and Storm.jpg
   - name: Amos
     desc: The Boss
