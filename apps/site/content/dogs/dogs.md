@@ -20,7 +20,7 @@ dogs:
   - name: Abby
     birthday: 2022-09-10T16:00:00.000Z
     desc: Absolute little nugget
-    hide: false
+    hide: true
     image: /images/dogs/abby.jpg
   - name: 'Miffy '
     desc: >-
