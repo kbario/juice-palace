@@ -8,7 +8,7 @@ dogs:
       All smiles for the right human... this warrior princess can be subdued by
       bum scratches!
     image: /images/Xena.jpg
-  - name: Jorge and Storm
+  - name: 'Jorge and Storm '
     desc: Checking out the dog treats on the new menu!
     image: /images/Jorge and Storm.jpg
   - name: Keelie
