@@ -1,5 +1,7 @@
 ---
 dogs:
+  - name: Jorge and Storm
+    image: /images/Jorge and Storm.jpg
   - name: Amos
     desc: The Boss
     image: /images/received_214771028182946.jpeg
