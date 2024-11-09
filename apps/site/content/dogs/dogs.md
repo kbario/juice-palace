@@ -36,8 +36,8 @@ emailBodyTemplate: >-
 
   Name: <your dog's name>,
 
-  Description: <anything, from how much of a gooden they are, to how much they
-  love JP puppawcinos>
+  Description: <anything, from their personality, what makes them special, to
+  how much they love JP puppawcinos>
 
 
   I have attached my photo to the email
