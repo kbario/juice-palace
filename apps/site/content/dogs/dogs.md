@@ -8,11 +8,6 @@ dogs:
       All smiles for the right human... this warrior princess can be subdued by
       bum scratches!
     image: /images/Xena.jpg
-  - name: 'Miffy '
-    desc: >-
-      She had a little wiggle in her walk and brought joy to everyone she met at
-      the beach. Gone... but never forgotten.
-    image: /images/Miffy.jpg
   - name: Jorge and Storm
     desc: Checking out the dog treats on the new menu!
     hide: false
@@ -26,6 +21,11 @@ dogs:
     desc: Absolute little nugget
     hide: false
     image: /images/dogs/abby.jpg
+  - name: 'Miffy '
+    desc: >-
+      She had a little wiggle in her walk and brought joy to everyone she met at
+      the beach. Gone... but never forgotten.
+    image: /images/Miffy.jpg
 contactEmail: juicepalacefremantle@gmail.com
 emailSubjectTemplate: Dogs of Juice Palace Entry
 emailBodyTemplate: >-
