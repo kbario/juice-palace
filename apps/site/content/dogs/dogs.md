@@ -17,6 +17,11 @@ dogs:
     desc: Absolute little nugget
     hide: false
     image: /images/dogs/abby.jpg
+  - name: 'Miffy '
+    desc: >-
+      She had a little wiggle in her walk and brought joy to everyone she met at
+      the beach. Gone... but never forgotten.
+    image: /images/Miffy.jpg
 contactEmail: juicepalacefremantle@gmail.com
 emailSubjectTemplate: Dogs of Juice Palace Entry
 emailBodyTemplate: >-
