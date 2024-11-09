@@ -8,7 +8,9 @@ import Layout from '../layouts/Layout.astro';
 const asdf = await client.queries.home({ relativePath: 'hero.md' });
 ---
 
-<Layout title='Juice Palace'>
+<Layout
+  title='Menu - Juice Palace'
+  description='the food menu of Juice Palace, from coffee to toasties'>
   <ScrollContainer>
     <Hero
       client:idle
