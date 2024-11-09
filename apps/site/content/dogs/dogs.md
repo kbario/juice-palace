@@ -11,7 +11,7 @@ dogs:
   - name: Jorge and Storm
     desc: Checking out the dog treats on the new menu!
     hide: false
-    image: /images/Jorge and Storm.jpg
+    image: /images/Jorge and Storm v2.jpg
   - name: Keelie
     birthday: 2022-09-10T16:00:00.000Z
     desc: Nervous; will lick your face off if you let her
