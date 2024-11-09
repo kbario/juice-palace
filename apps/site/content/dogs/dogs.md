@@ -1,8 +1,5 @@
 ---
 dogs:
-  - name: Jorge and Storm
-    desc: Checking out the dog treats on the new menu!
-    image: /images/Jorge and Storm.jpg
   - name: Amos
     desc: The Boss
     image: /images/received_214771028182946.jpeg
@@ -11,6 +8,9 @@ dogs:
       All smiles for the right human... this warrior princess can be subdued by
       bum scratches!
     image: /images/Xena.jpg
+  - name: Jorge and Storm
+    desc: Checking out the dog treats on the new menu!
+    image: /images/Jorge and Storm.jpg
   - name: Keelie
     birthday: 2022-09-10T16:00:00.000Z
     desc: Nervous; will lick your face off if you let her
