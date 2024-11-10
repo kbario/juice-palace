@@ -6,24 +6,6 @@ import { buttonCva } from "../../shared/button/button.cva";
 import { Accordion } from "@kobalte/core/accordion";
 import "./accordion.css";
 
-function pluralise(num: number, word: string) {
-  return `${num} ${word}${num === 1 ? "" : "s"}`;
-}
-function getAge(dateString: string | undefined | null) {
-  if (!dateString) return;
-  const today = new Date();
-  const birthDate = new Date(dateString);
-  const age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (age === 0) {
-    return `${pluralise(m, "month")} old`;
-  }
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    return `${pluralise(age - 1, "year")} old`;
-  }
-  return `${pluralise(age, "year")} old`;
-}
-
 export default (props: {
   data: Awaited<ReturnType<typeof client.queries.dogs>>;
 }) => {
@@ -73,9 +55,22 @@ export default (props: {
               </Show>
               <div class="flex flex-col gap-1 p-2">
                 <h3 data-tina-field={tinaField(dog, "name")}>{dog?.name}</h3>
-                <p data-tina-field={tinaField(dog, "birthday")}>
-                  {getAge(dog?.birthday)}
-                </p>
+                <Show when={dog?.tags?.length}>
+                  <ul
+                    class="flex gap-1"
+                    // data-tina-field={tinaField(dog, "tags")}
+                  >
+                    <For each={dog?.tags}>
+                      {(tag, idx) => (
+                        <li
+                          class="px-2 rounded-full bg-surface-container-low"
+                          data-tina-field={tinaField(dog, "tags", idx())}>
+                          {tag}
+                        </li>
+                      )}
+                    </For>
+                  </ul>
+                </Show>
                 <p data-tina-field={tinaField(dog, "desc")}>{dog?.desc}</p>
               </div>
             </div>

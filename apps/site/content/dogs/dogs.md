@@ -2,31 +2,35 @@
 dogs:
   - name: Amos
     desc: The Boss
-    image: /images/received_214771028182946.jpeg
+    image: /images/dogs/Amos.jpeg
   - name: Xena
     desc: >-
       All smiles for the right human... this warrior princess can be subdued by
       bum scratches!
-    image: /images/Xena.jpg
+    image: /images/dogs/Xena.jpg
   - name: Jorge and Storm
     desc: Checking out the dog treats on the new menu!
     hide: false
-    image: /images/Jorge and Storm v2.jpg
+    image: /images/dogs/Jorge and Storm v2.jpg
   - name: Keelie
-    birthday: 2022-09-10T16:00:00.000Z
     desc: Nervous; will lick your face off if you let her
+    tags:
+      - Nervous
+      - Big baby
     hide: false
     image: /images/dogs/keelie.jpg
   - name: Abby
-    birthday: 2022-09-10T16:00:00.000Z
-    desc: Absolute little nugget
+    desc: An absolute little nugget
+    tags:
+      - Rotund
+      - Bark o'clock
     hide: false
     image: /images/dogs/abby.jpg
   - name: 'Miffy '
     desc: >-
       She had a little wiggle in her walk and brought joy to everyone she met at
       the beach. Gone... but never forgotten.
-    image: /images/Miffy.jpg
+    image: /images/dogs/Miffy.jpg
 contactEmail: juicepalacefremantle@gmail.com
 emailSubjectTemplate: Dogs of Juice Palace Entry
 emailBodyTemplate: >-

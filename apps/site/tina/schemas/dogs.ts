@@ -45,13 +45,14 @@ export const DOGS = {
       },
       fields: [
         { type: "string", name: "name", label: "Dog name", required: true },
-        {
-          type: "datetime",
-          name: "birthday",
-          label: "Birthday",
-          description: "just to show their age dynamically",
-        },
         { type: "string", name: "desc", label: "Description" },
+        {
+          type: "string",
+          name: "tags",
+          label: "Tags",
+          description: "any traits or unique qualities",
+          list: true,
+        },
         {
           type: "boolean",
           name: "hide",
