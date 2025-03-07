@@ -122,6 +122,10 @@ section:
         desc: 'Espresso shot, cashew nuts, cacao, banana & coconut milk'
   - title: Snacks
     items:
+      - title: Breakfast Muesli Bites
+        price: '4.50'
+        dietary:
+          - Gluten Free
       - title: Cinnamon Scroll
         desc: ''
         price: '6.50'
