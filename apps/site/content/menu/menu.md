@@ -151,7 +151,7 @@ section:
       - title: Chocolate Croissant
         price: '6.50'
       - title: Cookies
-        desc: ANZAC or Vanilla Moment
+        desc: 'ANZAC, Smartie or White Choc Macadamia'
         price: '4'
   - title: Toasties
     desc: >-
