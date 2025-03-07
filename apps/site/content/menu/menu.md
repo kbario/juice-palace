@@ -129,7 +129,7 @@ section:
       - title: Cinnamon Scroll
         desc: ''
         price: '6.50'
-      - title: Banana Bread
+      - title: Banana and Walnut Bread
         price: '7'
         dietary: []
       - title: Sweet Muffins
