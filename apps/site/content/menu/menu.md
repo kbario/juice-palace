@@ -122,16 +122,13 @@ section:
         desc: 'Espresso shot, cashew nuts, cacao, banana & coconut milk'
   - title: Snacks
     items:
-      - title: Breakfast Muesli Bites
-        price: '4.50'
-        dietary:
-          - Gluten Free
+      - title: Plain Croissant
+        price: '5.50'
+      - title: Chocolate Croissant
+        price: '6.50'
       - title: Cinnamon Scroll
         desc: ''
         price: '6.50'
-      - title: Banana and Walnut Bread
-        price: '7'
-        dietary: []
       - title: Sweet Muffins
         desc: Apple & Cinnamon or Raspberry & White Choc
         price: '6.5'
@@ -144,16 +141,19 @@ section:
         dietary:
           - Vegetarian
           - Gluten Free
+      - title: Banana and Walnut Bread
+        price: '7'
+        dietary: []
       - title: Protein Ball
         desc: 'Nuts, dates, coconut & cacao'
         price: '4.5'
         dietary:
           - Vegan
           - Gluten Free
-      - title: Plain Croissant
-        price: '5.50'
-      - title: Chocolate Croissant
-        price: '6.50'
+      - title: Breakfast Muesli Bites
+        price: '4.50'
+        dietary:
+          - Gluten Free
       - title: Cookies
         desc: 'ANZAC, Smartie or White Choc Macadamia'
         price: '4'
