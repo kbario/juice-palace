@@ -31,6 +31,11 @@ dogs:
       She had a little wiggle in her walk and brought joy to everyone she met at
       the beach. Gone... but never forgotten.
     image: /images/dogs/Miffy.jpg
+  - name: Minty
+    desc: >-
+      Minty the blind bluey is a little dog beach lover and enjoys a stop for
+      coffee
+    image: /images/1000007072.jpg
 contactEmail: juicepalacefremantle@gmail.com
 emailSubjectTemplate: Dogs of Juice Palace Entry
 emailBodyTemplate: >-
