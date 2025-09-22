@@ -139,7 +139,7 @@ section:
           - Gluten Free
       - title: Savoury Muffin
         desc: 'Roasted capsicum, toasted corn, cheese & spinach'
-        price: '6.5'
+        price: '6.75'
         dietary:
           - Vegetarian
           - Gluten Free
