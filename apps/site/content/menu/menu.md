@@ -108,7 +108,6 @@ section:
   - title: Smoothies
     price: '12'
     items:
-      - title: Look out for our smoothie specials
       - title: Classic Banana
         desc: 'Banana, yoghurt, honey, vanilla & milk'
       - title: Mr. Peanut
@@ -121,6 +120,7 @@ section:
         desc: 'Mango, spinach, mint, honey & coconut water'
       - title: Espresso
         desc: 'Espresso shot, cashew nuts, cacao, banana & coconut milk'
+      - title: Look out for our smoothie specials
   - title: Snacks
     items:
       - title: Plain Croissant
