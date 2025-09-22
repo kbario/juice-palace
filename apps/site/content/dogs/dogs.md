@@ -1,5 +1,8 @@
 ---
 dogs:
+  - name: Henry
+    desc: Always hopeful!
+    image: /images/ed0279ef-5091-4eb8-9d77-4572f71ea237~1.jpg
   - name: Amos
     desc: The Boss
     image: /images/dogs/Amos.jpeg
