@@ -53,7 +53,7 @@ section:
               - size: Small
                 price: 5.2
               - size: Large
-                price: 5.5
+                price: 5.7
           - title: Turmeric Latte
             sizing:
               - size: Small
