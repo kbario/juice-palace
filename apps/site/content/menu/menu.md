@@ -108,6 +108,7 @@ section:
   - title: Smoothies
     price: '12'
     items:
+      - title: Look out for our smoothie specials
       - title: Classic Banana
         desc: 'Banana, yoghurt, honey, vanilla & milk'
       - title: Mr. Peanut
