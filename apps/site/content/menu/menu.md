@@ -133,7 +133,7 @@ section:
         price: '6.75'
       - title: Sweet Muffins
         desc: Apple & Cinnamon or Raspberry & White Choc
-        price: '6.5'
+        price: '6.75'
         dietary:
           - Vegetarian
           - Gluten Free
