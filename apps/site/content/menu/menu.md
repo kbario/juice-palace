@@ -81,7 +81,7 @@ section:
           - title: Lemon & Ginger
           - title: Peppermint
   - title: Juices
-    price: '9.50'
+    price: '9.70'
     items:
       - title: OJ
         desc: Oranges
