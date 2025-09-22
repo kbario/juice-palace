@@ -4,7 +4,7 @@ buttons:
     link: /menu
   - label: Find us
     link: /contact
-image: ''
+image: /images/Hero.jpg
 ---
 
 # The **Perfect** Cup of Coffee
