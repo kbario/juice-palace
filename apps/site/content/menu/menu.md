@@ -54,7 +54,7 @@ section:
                 price: 5.2
               - size: Large
                 price: 5.7
-          - title: Turmeric Latte
+          - title: Turmeric or Beetroot Latte
             sizing:
               - size: Small
                 price: 5.7
