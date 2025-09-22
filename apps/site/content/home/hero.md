@@ -4,10 +4,10 @@ buttons:
     link: /menu
   - label: Find us
     link: /contact
-image: /images/PXL_20240927_232540311~3.jpg
+image: ''
 ---
 
-# The **Perfect** Cup of Coffee
+# ![](/images/PXL_20240927_232540311~3.jpg)The **Perfect** Cup of Coffee
 
 Our little palace, serving the human and four legged communities of South Freo's little dog beach.
 
