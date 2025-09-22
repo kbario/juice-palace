@@ -144,7 +144,7 @@ section:
           - Vegetarian
           - Gluten Free
       - title: Banana and Walnut Bread
-        price: '7'
+        price: '7.5'
         dietary: []
       - title: Protein Ball
         desc: A changing selection of homemade protein balls
