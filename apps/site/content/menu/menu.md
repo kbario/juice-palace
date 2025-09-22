@@ -167,13 +167,9 @@ section:
         desc: 'Haloumi, Egg, Veggie Ham, Spinach & Tomato Relish'
         dietary:
           - Vegetarian
-      - title: Classic
-        desc: 'Jarlsberg Cheese, Plant-based "Ham" & Tomato'
+      - title: Avocado and Brie
+        desc: 'Avocado, Brie, Sundried Tomato, Basil and Mozarella'
         dietary:
           - Vegetarian
-      - title: Vegan
-        desc: 'Smokey Pumpkin, Avocado, Hummus & Rocket'
-        dietary:
-          - Vegan
 ---
 
