@@ -19,7 +19,7 @@ section:
               - size: Small
                 price: 4.7
               - size: Large
-                price: 5
+                price: 5.2
           - title: Flat White/ Cappuccino/ Latte
             sizing:
               - size: Small
