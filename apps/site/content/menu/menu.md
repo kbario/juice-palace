@@ -27,7 +27,7 @@ section:
               - size: Large
                 price: 5.7
           - title: Short Mac / Piccolo
-            price: '4.8'
+            price: '5'
           - title: Long Mac
             sizing:
               - size: Small
