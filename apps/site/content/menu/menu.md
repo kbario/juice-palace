@@ -37,7 +37,7 @@ section:
           - title: Mocha
             sizing:
               - size: Small
-                price: 5.7
+                price: 5.6
               - size: Large
                 price: 6.1
           - title: Hot Choc
