@@ -146,8 +146,8 @@ section:
         price: '7'
         dietary: []
       - title: Protein Ball
-        desc: 'Nuts, dates, coconut & cacao'
-        price: '4.5'
+        desc: A changing selection of homemade protein balls
+        price: '5.00'
         dietary:
           - Vegan
           - Gluten Free
