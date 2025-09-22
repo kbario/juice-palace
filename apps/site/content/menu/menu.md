@@ -124,7 +124,7 @@ section:
   - title: Snacks
     items:
       - title: Plain Croissant
-        price: '5.50'
+        price: '5.75'
       - title: Chocolate Croissant
         price: '6.50'
       - title: Cinnamon Scroll
