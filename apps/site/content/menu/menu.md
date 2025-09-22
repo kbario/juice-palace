@@ -73,7 +73,7 @@ section:
               - size: Large
                 price: 6.2
       - title: Tea
-        price: '4.5'
+        price: '4.6'
         items:
           - title: Black
           - title: Earl Grey
