@@ -126,7 +126,8 @@ section:
       - title: Plain Croissant
         price: '5.75'
       - title: Chocolate Croissant
-        price: '6.50'
+        price: '6.75'
+        dietary: []
       - title: Cinnamon Scroll
         desc: ''
         price: '6.50'
