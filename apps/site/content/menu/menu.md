@@ -152,10 +152,11 @@ section:
         dietary:
           - Vegan
           - Gluten Free
-      - title: Breakfast Muesli Bites
-        price: '4.50'
+      - title: Homemade Sausage Rolls
+        price: '7.50'
         dietary:
-          - Gluten Free
+          - Vegetarian
+          - Contains Nuts
       - title: Cookies
         desc: 'ANZAC, Smartie or White Choc Macadamia'
         price: '4'
