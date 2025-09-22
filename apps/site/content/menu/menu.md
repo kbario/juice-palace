@@ -159,12 +159,12 @@ section:
         price: '4'
   - title: Toasties
     desc: >-
-      All of our toasted sandwiches are vegetarian and served on Abhi's
-      continental loaf
-    price: '12'
+      All of our toasted sandwiches are vegetarian and served on Big Loaf
+      Turkish Rolls
+    price: '14'
     items:
       - title: Breakfast
-        desc: 'Haloumi, Egg, Spinach & Tomato Relish'
+        desc: 'Haloumi, Egg, Veggie Ham, Spinach & Tomato Relish'
         dietary:
           - Vegetarian
       - title: Classic
