@@ -159,7 +159,7 @@ section:
           - Contains Nuts
       - title: Cookies
         desc: 'ANZAC, Smartie or White Choc Macadamia'
-        price: '4'
+        price: '4.50'
   - title: Toasties
     desc: >-
       All of our toasted sandwiches are vegetarian and served on Big Loaf
