@@ -4,7 +4,7 @@ buttons:
     link: /menu
   - label: Find us
     link: /contact
-image: ''
+image: /images/PXL_20240927_232540311~3.jpg
 ---
 
 # The **Perfect** Cup of Coffee
