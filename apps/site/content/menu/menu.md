@@ -51,7 +51,7 @@ section:
           - title: Iced Coffees
             sizing:
               - size: Small
-                price: 5
+                price: 5.2
               - size: Large
                 price: 5.5
           - title: Turmeric Latte
