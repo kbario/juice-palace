@@ -106,7 +106,7 @@ section:
       - title: Berry
         desc: 'Raspberries, banana, hemp seeds & coconut milk'
   - title: Smoothies
-    price: '11'
+    price: '12'
     items:
       - title: Classic Banana
         desc: 'Banana, yoghurt, honey, vanilla & milk'
