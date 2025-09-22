@@ -65,7 +65,7 @@ section:
               - size: Small
                 price: 5.7
               - size: Large
-                price: 6
+                price: 6.2
           - title: Ruby Honey Chai
             sizing:
               - size: Small
