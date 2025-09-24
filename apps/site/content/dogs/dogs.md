@@ -1,5 +1,7 @@
 ---
 dogs:
+  - name: Djilba
+    image: /images/Djilba dog.jpg
   - name: Amos
     desc: The Boss
     image: /images/dogs/Amos.jpeg
