@@ -1,5 +1,10 @@
 ---
 dogs:
+  - name: Molly
+    desc: >-
+      The loveliest old lady of the beach.. lives life at her own pace but
+      always has time for a cuddle.
+    image: ''
   - name: Amos
     desc: The Boss
     image: /images/dogs/Amos.jpeg
