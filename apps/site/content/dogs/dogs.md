@@ -1,7 +1,5 @@
 ---
 dogs:
-  - name: Djilba
-    image: /images/Djilba dog.jpg
   - name: Amos
     desc: The Boss
     image: /images/dogs/Amos.jpeg
@@ -17,6 +15,8 @@ dogs:
     desc: Checking out the dog treats on the new menu!
     hide: false
     image: /images/dogs/Jorge and Storm v2.jpg
+  - name: Djilba
+    image: /images/Djilba dog.jpg
   - name: Keelie
     desc: Nervous; will lick your face off if you let her
     tags:
