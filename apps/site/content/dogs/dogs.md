@@ -10,7 +10,7 @@ dogs:
     desc: >-
       The loveliest old lady of the beach.. lives life at her own pace but
       always has time for a cuddle.
-    image: ''
+    image: /images/PXL_20250925_004428827.jpg
   - name: Xena
     desc: >-
       All smiles for the right human... this warrior princess can be subdued by
