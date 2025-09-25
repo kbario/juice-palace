@@ -21,7 +21,7 @@ dogs:
     hide: false
     image: /images/dogs/Jorge and Storm v2.jpg
   - name: Djilba
-    image: /images/Djilba dog.jpg
+    image: /images/IMG_20250925_182045 (1).jpg
   - name: Keelie
     desc: Nervous; will lick your face off if you let her
     tags:
