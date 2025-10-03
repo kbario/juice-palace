@@ -313,7 +313,7 @@ const Item = (item: {
       </div>
       <Show when={item.data.price}>
         <span data-tina-field={tinaField(item.data, "price")}>
-          ${parseFloat(item.data.price || "").toFixed(1)}
+          ${parseFloat(item.data.price || "").toFixed(2)}
         </span>
       </Show>
       <Show when={!!item.data.sizing?.length}>
@@ -323,7 +323,7 @@ const Item = (item: {
               <li>
                 <Show when={size?.price}>
                   <span data-tina-field={tinaField(size, "price")}>
-                    ${size!.price.toFixed(1)}
+                    ${size!.price.toFixed(2)}
                   </span>
                 </Show>
               </li>
