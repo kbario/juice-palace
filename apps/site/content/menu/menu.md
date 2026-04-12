@@ -1,9 +1,7 @@
 ---
 section:
   - title: Hot Drinks
-    desc: >-
-      We charge 30c for takeaway cups. Please feel free to use our ceramic ones
-      to dine-in or BYO keep cup.
+    desc: We charge 30c for takeaway cups. Please feel free to use our ceramic ones to dine-in or BYO keep cup.
     price: ''
     subgroups:
       - title: Coffee
@@ -124,7 +122,7 @@ section:
   - title: Snacks
     items:
       - title: Plain Croissant
-        price: '5.75'
+        price: '6.00'
       - title: Chocolate Croissant
         price: '6.75'
         dietary: []
@@ -161,9 +159,7 @@ section:
         desc: 'ANZAC, Smartie or White Choc Macadamia'
         price: '4.50'
   - title: Toasties
-    desc: >-
-      All of our toasted sandwiches are vegetarian and served on Big Loaf
-      Turkish Rolls
+    desc: All of our toasted sandwiches are vegetarian and served on Big Loaf Turkish Rolls
     price: '14'
     items:
       - title: Breakfast
