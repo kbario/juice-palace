@@ -158,8 +158,8 @@ section:
       - title: Cookies
         desc: 'ANZAC, Smartie or White Choc Macadamia'
         price: '4.50'
-  - title: Toasties
-    desc: All of our toasted sandwiches are vegetarian and served on Big Loaf Turkish Rolls
+  - title: Paninis
+    desc: All of our paninis are vegetarian and served on Turkish bread
     price: '14'
     items:
       - title: Breakfast
