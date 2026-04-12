@@ -128,7 +128,7 @@ section:
         dietary: []
       - title: Cinnamon Scroll
         desc: ''
-        price: '6.75'
+        price: '6.90'
       - title: Sweet Muffins
         desc: Apple & Cinnamon or Raspberry & White Choc
         price: '6.75'
